@@ -91,7 +91,7 @@
                       <input name="signup_emails" type="hidden" value="1">
                     </p>
                     <div class="login-form__submit">
-                      <img style="position: absolute; top: 215px; right: 20%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">
+                      <img style="position: absolute; top: 248px; right: 20%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">
                       <button class="sub-log signup-button" @click.prevent="form_submit">Sign Up</button>
                     </div>
                   </div>
@@ -118,7 +118,6 @@
 <script>
 import Login from "../auth/Login";
 export default {
-
   name: "Register",
   props: ['showModal', 'close'],
   component: {Login},
@@ -178,8 +177,7 @@ export default {
         console.log(response.data)
         localStorage.setItem('access_token', response.data.token);
         this.showModal()
-        // resolve(true)
-        this.$router.push({name: "dashboard"})
+        this.$router.push({name: "Dashboard"})
         window.location.reload()
       }).catch(err => {
         console.log({err:err}, 'SocialLogin')
