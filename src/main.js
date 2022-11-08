@@ -17,9 +17,9 @@ console.log({clientId: process.env.GOOGLE_CLIENT_ID,
 Vue.use(VueSocialauth, {
   providers: {
     google: {
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      client_secret: process.env.GOOGLE_CLIENT_SECRET,
-      redirectUri: process.env.GOOGLE_REDIRECT_URI,
+      clientId: '623424837790-4re684v9gip1nnojpmbhui324b1i4h46.apps.googleusercontent.com',
+      client_secret: "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",
+      redirectUri: "https://vue-alisonproject-auth.herokuapp.com/auth/google/callback",
       // redirectUri: 'http://localhost:8080/auth/google/callback',
     },
     facebook: {
