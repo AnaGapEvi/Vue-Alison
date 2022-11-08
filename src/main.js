@@ -18,14 +18,14 @@ Vue.use(VueSocialauth, {
     google: {
       clientId: '623424837790-4re684v9gip1nnojpmbhui324b1i4h46.apps.googleusercontent.com',
       client_secret: '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',
-      // redirectUri: 'https://vue-alison-auth.herokuapp.com/auth/google/callback',
-      redirectUri: 'http://localhost:8080/auth/google/callback',
+      redirectUri: 'https://vue-alisonproject-auth.herokuapp.com/auth/google/callback',
+      // redirectUri: 'http://localhost:8080/auth/google/callback',
     },
     facebook: {
       clientId: '657624482470751',
       client_secret: '239596347338ded2545a05f53cc42170',
       // redirectUri: 'http://localhost:8080/auth/facebook/callback'
-      redirectUri: 'https://vue-alison-auth.herokuapp.com/auth/facebook/callback',
+      redirectUri: 'https://vue-alisonproject-auth.herokuapp.com/auth/facebook/callback',
     },
   }
 });
