@@ -10,6 +10,7 @@ import {env} from "shelljs";
 
 Vue.use(Vuesax)
 Vue.use(vsButton)
+
 Vue.use(VueSocialauth, {
   providers: {
     google: {
