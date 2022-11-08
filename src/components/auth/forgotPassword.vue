@@ -27,11 +27,10 @@
                 />
               </b-form-group>
             </validation>
-
             <div class="mt-3">
             <button class="form-btn" @click="forgot_password()">Reset my password</button>
             </div>
-            <span style="color: #e59898" v-if="error!==''">{{error}}</span>
+            <span style="color: #e59898" v-if="error">{{error}}</span>
           </b-form>
         </validation-observer>
       </div>
@@ -44,7 +43,8 @@ export default {
   name: "forgotPassword",
   data(){
     return{
-      email:''
+      email:'',
+      error:null
     }
   },
   methods:{

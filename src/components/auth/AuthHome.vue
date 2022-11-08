@@ -2,9 +2,9 @@
   <div class=dashboard>
     <div class="left-asside">
       <div class="person"></div>
-      <p style="text-align:center; margin 0px; padding:0; font-size: 16px"><b>{{user.firstname}}</b></p>
-      <p style="text-align:center; margin 0px; padding:0"><router-link to="" style="text-decoration: none; color: black">View Profile</router-link></p>
-      <p style="text-align:center; margin 0px">Alison ID {{user.id}}</p>
+      <p style="text-align:center; margin: 0px; padding:0; font-size: 16px"><b>{{user.firstname}}</b></p>
+      <p style="text-align:center; margin: 0px; padding:0"><router-link to="" style="text-decoration: none; color: black">View Profile</router-link></p>
+      <p style="text-align:center; margin: 0px">Alison ID {{user.id}}</p>
       <p class="root withSVG"><b-icon icon="play-circle-fill"></b-icon>Continue Leraning</p>
       <p class="root withSVG"><b-icon icon="heart-fill"></b-icon>For You</p>
       <router-link class="root" to="/dashboard"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/dashboard.svg')"></div>Your Dashboard</router-link>
@@ -41,7 +41,6 @@
               <p>Learners who set study reminders are 75% more likely to complete a course. You can change this any time.</p>
           </div>
           <div class="radio">
-            <!-- Recommended -->
             <input type="radio" name="learn">
             Learn 2 days a week
           </div>
@@ -56,7 +55,7 @@
       </div>
       <div style="display:flex; justify-content:space-evenly; margin: 40px auto">
         <div class="clock">
-            <div>
+          <div>
               <div style="display: flex; justify-content: space-between">
                 <span class="title-reminder">Learning Statistics</span>
                 <router-link to="" style="font-size: 12px;margin-top: 15px; width:25%; color: #1783b1">Learner Report</router-link>
@@ -73,11 +72,7 @@
                   </p>
                 </div>
               </div>
-
-            </div>
-            <div>
-
-            </div>
+          </div>
         </div>
         <div class="clock">
               <p class="medal-title">Medals</p>
@@ -94,7 +89,6 @@
               <div class="medal-desc">
                 <p style="margin: 0 !important;">You are <b> 1 day</b> away from earning</p>
                 <input type="range" value="50%" disabled>
-
                 <img  :src="medals[2].img" width="30px"/>
               </div>
               <button class="medal-btn">Continue Learning</button>
@@ -140,7 +134,6 @@ export default {
     logout(){
             this.axios.get('/logout').then(result => {
             localStorage.removeItem('access_token');
-            // this.user={}
             this.$router.push({path: "/"});
             window.location.reload()
             }).catch(error => {

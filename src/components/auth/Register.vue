@@ -10,17 +10,10 @@
       </div>
       <div class="login-right">
         <div class="tabs" >
-<!--        <div class="tabs" v-if="$route.path === '/login'|| $route.path === '/register'">-->
           <div class="active"><router-link to="/register">Sign Up</router-link></div>
           <div class="active" v-if=" $route.path === '/register' "><router-link  to="/login">Log In</router-link></div>
           <div class="login" v-else><button @click="close" style="background: none; color: gray"> Log In</button></div>
         </div>
-<!--        <div class="tabs">-->
-<!--          <div class="active" @click="showModalRegister =true">Sign Up</div>-->
-<!--          <Register v-if="showModalRegister" class="modal-mask" :showModal="back"> </Register>-->
-<!--          <div class="login" ><button @click="showModalLogin = true">Log In</button></div>-->
-<!--          <Login v-if="showModalLogin" class="modal-mask" :showModalLog="backLog"></Login>-->
-<!--        </div>-->
           <div class="login-inner-tabs">
             <div class="login-inner-left">
               <div class="section">
@@ -100,8 +93,6 @@
                 <div class="form-group social-signup" style="display: none">
                   <form method="POST" action="https://alison.com" accept-charset="UTF-8" social-form="" id="social-form" name="social-form"><input name="_token" type="hidden" value="2ACIGXlINYAK0EBvCUbyJzOXHVi4ICIQHGK8d7eK">
                     <p class="terms-conditions">
-<!--                      <vs-checkbox color="success" >Success</vs-checkbox>-->
-<!--                      <input id="signup_tc_social" name="signup_tc_social" type="checkbox">-->
                       <label for="signup_tc_social" class="form-checkbox tc-check">I agree to the <a href="https://alison.com/about/terms-of-use" target="_blank">Terms and Conditions</a></label>
                       <input name="signup_emails_social" type="hidden" value="1">
                       <input class="submit-login signup-button" type="submit" value="Sign Up">
@@ -183,14 +174,6 @@ export default {
         console.log({err:err}, 'SocialLogin')
       })
     },
-    regYahoo(){
-        this.axios.get(
-          "https://query.yahooapis.com/v1/public/yql?q=select item.condition from weather.forecast where woeid in (select woeid from geo.places(1) where text='Sunderland') and u='c'&format=json"
-        )
-        .then(function(result) {
-          console.log(result);
-        });
-    }
    },
 }
 </script>

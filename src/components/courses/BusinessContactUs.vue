@@ -23,7 +23,7 @@
         <h4><span class="icon-chat"></span> Send Us A Message</h4>
         <p>If you are an organization, government body, educational institution or not-for-profit that needs upskilling or training services for your workforce - we are at your service!</p>
         <p>Contact us for enquiries on any of our business solutions such as our Free Learning Management System (FLMS), or our API integration.</p>
-        <button to="">Contact Us</button>
+        <button >Contact Us</button>
       </div>
 
     </div>

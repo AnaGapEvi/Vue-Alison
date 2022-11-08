@@ -91,7 +91,6 @@
     <to-education></to-education>
   </div>
 </template>
-
 <script>
 import TabNav from "../custom/TabNav"
 import Skills from "../custom/Skills.vue";

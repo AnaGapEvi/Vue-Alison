@@ -67,7 +67,6 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .banner-title{
   color: #fff;
@@ -89,7 +88,6 @@ export default {
   line-height: 21px;
   letter-spacing: 0;
   color: #5d676e;
-  /*height: 88px; */
   overflow: hidden;
   text-overflow: ellipsis; display: -webkit-box;
   -webkit-line-clamp: 4;
@@ -124,20 +122,14 @@ export default {
   letter-spacing: 0;
   color: rgba(255,255,255,.91);
   box-shadow: 5px 10px;
-
 }
-
-
 .career-section:hover .career2{
   display: block !important;
   box-shadow: 0 0 6px rgba(42, 173, 6, 0.29);
-  /*transition: 2s ease-in-out;*/
   transition: all 2s linear;
-
 }
 .career-section:hover{
   transition: 500ms ease-in-out;
-
 }
 .career2{
   text-align: left;
@@ -157,7 +149,6 @@ export default {
   line-height: 30px;
   letter-spacing: 0;
   color: black;
-
 }
 .career-section{
   height: 266px;
@@ -165,16 +156,13 @@ export default {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgb(51 51 51 / 30%);
-
 }
-
 .careers{
   padding: 0 130px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   transition: 2s ease-in-out;
-
 }
 .careers img{
   overflow: hidden;

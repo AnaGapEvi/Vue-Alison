@@ -7,9 +7,7 @@
         <p class="cat-course"  v-if="course.category" :style="{ background: course.category.color}">{{course.category.name}}</p>
       </div>
     </template>
-    <!-- <div v-else></div> -->
     <p style="font-size: 15px; padding: 2px"><b>{{course.name}}</b></p>
-
     <button class="btn">Start Now</button>
     <div class="start-now">
       <p><i>{{course.publish}}</i></p>
@@ -18,14 +16,12 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   name: "Course",
   props:['course'],
 }
 </script>
-
 <style scoped>
 .course{
   position: relative;
@@ -62,7 +58,6 @@ export default {
   padding: 20px;
   display: none;
   transition: background .3s ease;
-
 }
 .course:hover .start-now{
   display: block;

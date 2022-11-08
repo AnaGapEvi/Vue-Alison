@@ -55,11 +55,13 @@ name: 'Modal',
       categories: [],
       name:'',
       required: true,
+      routs:[
+
+      ]
     }
   },
-  mounted() {
+  created() {
     this.getCategories()
-
   },
   methods:{
     getCategories() {

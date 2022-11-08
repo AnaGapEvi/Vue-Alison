@@ -65,7 +65,6 @@
             </div>
             <div class="login-inner-right">
               <div class="form-group email-signup slide-on-social">
-<!--                {{error}}-->
                 <form  accept-charset="UTF-8" data-signup-form="" id="signup-form" name="register-form"><input name="_token" type="hidden" value="2ACIGXlINYAK0EBvCUbyJzOXHVi4ICIQHGK8d7eK">
                   <div class="clearfix"></div>
                   <div class="input-field-email">
@@ -107,7 +106,6 @@
 
 <script>
 import Register from "./Register.vue";
-
 export default {
   name: "Login",
   components: {Register},
@@ -122,7 +120,6 @@ export default {
       error:'',
       passwordFieldType: "password",
       showModalRegister:false,
-
     }
   },
   methods:{
@@ -172,7 +169,6 @@ export default {
     show() {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
     },
-
   }
 }
 </script>

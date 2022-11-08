@@ -1,14 +1,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-// import VueCarousel from 'vue-carousel';
 import Vuesax from 'vuesax'
 import vsButton from "vuesax";
 import 'material-icons/iconfont/material-icons.css';
 import 'vuesax/dist/vuesax.css'
 import VueSocialauth from 'vue-social-auth'
 import {env} from "shelljs";
-
 
 Vue.use(Vuesax)
 Vue.use(vsButton)

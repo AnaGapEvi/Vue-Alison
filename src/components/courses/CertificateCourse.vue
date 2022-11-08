@@ -29,7 +29,6 @@
       </div>
     </div>
 </template>
-
 <script>
 import axios from "axios";
 import Course from "./Course.vue";
@@ -57,16 +56,13 @@ export default {
         "Engineering & Construction" : "black",
         "Teaching & Academics":"#bfd131"
       }
-
     }
   },
   mounted() {
     this.getCertificateCourse()
   },
   methods:{
-
     getCertificateCourse(){
-
        axios.get('/certificate-courses').then( response => {
          response.data.forEach((course) => {
            course.category.color = this.categories[course.category.name]
@@ -90,7 +86,6 @@ export default {
       })
     }
   }
-
 }
 </script>
 

@@ -33,10 +33,8 @@
             </div>
           </div>
         </div>
-<!--        <div class="hide">-->
           <button  class="next-btn" @click="preBtn()"><img src="https://alison.com/html/site/img/category-page/arrow-active-left.png"> </button>
           <button class="pre-btn" @click="nextBtn()"><img src="https://alison.com/html/site/img/category-page/arrow-active-right.png"></button>
-<!--        </div>-->
       </div>
         <div class="courses">
           <div style="width: 100%;display: flex; justify-content: space-between">
@@ -75,7 +73,6 @@
         </div>
     </div>
 </template>
-
 <script>
 import Course from "./Course";
 import axios from "axios";

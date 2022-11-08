@@ -107,10 +107,7 @@
     <div >
     <begin-to></begin-to>
     </div>
-
-
   </div>
-
 </template>
 
 <script>
@@ -118,7 +115,6 @@ import TabNav from "../custom/TabNav";
 export default {
   name: "EarnMoney",
   components: {TabNav},
-
   data(){
     return {
       activeItem: null,
@@ -128,9 +124,6 @@ export default {
 </script>
 
 <style scoped>
-.active{
-  color:red
-}
 .business h2 {
   color: #fff;
   font-size: 28px;
@@ -174,7 +167,6 @@ export default {
   text-align: left;
 }
 .earn-money .story h2 {
-  /*margin-top: 70px;*/
   color: #2d3941;
   text-align: left;
   font-size: 26px;

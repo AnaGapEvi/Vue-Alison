@@ -33,9 +33,6 @@
           <course :course="course"></course>
         </div>
       </div>
-
-
-      <!--      </div>-->
     </div>
 </template>
 
@@ -87,10 +84,9 @@ export default {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
     changeLanguage(data){
-
       axios.post('/language-filter', data).then( response => {
         response.data.forEach((course) => {
-          course.category.color = categories[course.category.name]
+          course.category.color = this.categories[course.category.name]
         })
         this.courses=response.data
       }).catch(e=>{
