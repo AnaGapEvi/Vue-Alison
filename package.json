@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
+    "start": "node server.js",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run e2e",
     "build": "node build/build.js"
@@ -21,6 +21,7 @@
     "mdb-vue-ui-kit": "^3.0.0",
     "npm": "^8.19.2",
     "passport-yahoo-oauth2": "^0.2.6",
+    "serve-static": "^1.15.0",
     "slick-carousel": "^1.8.1",
     "vee-validate": "^3.4.14",
     "vue": "^2.7.10",
