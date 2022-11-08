@@ -11,9 +11,6 @@ import {env} from "shelljs";
 Vue.use(Vuesax)
 Vue.use(vsButton)
 
-console.log({clientId: process.env.GOOGLE_CLIENT_ID,
-  client_secret: process.env.GOOGLE_CLIENT_SECRET,
-  redirectUri: process.env.GOOGLE_REDIRECT_URI})
 Vue.use(VueSocialauth, {
   providers: {
     google: {
@@ -23,10 +20,10 @@ Vue.use(VueSocialauth, {
       // redirectUri: 'http://localhost:8080/auth/google/callback',
     },
     facebook: {
-      clientId: process.env.FACEBOOK_ID,
-      client_secret: process.env.FACEBOOK_SECRET,
+      clientId: "657624482470751",
+      client_secret: "239596347338ded2545a05f53cc42170",
       // redirectUri: 'http://localhost:8080/auth/facebook/callback'
-      redirectUri: process.env.FACEBOOK_REDIRECT
+      redirectUri: "https://vue-alisonproject-auth.herokuapp.com/auth/facebook/callback"
     },
   }
 });
