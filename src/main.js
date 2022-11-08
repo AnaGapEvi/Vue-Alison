@@ -11,6 +11,9 @@ import {env} from "shelljs";
 Vue.use(Vuesax)
 Vue.use(vsButton)
 
+console.log({clientId: process.env.GOOGLE_CLIENT_ID,
+  client_secret: process.env.GOOGLE_CLIENT_SECRET,
+  redirectUri: process.env.GOOGLE_REDIRECT_URI})
 Vue.use(VueSocialauth, {
   providers: {
     google: {
