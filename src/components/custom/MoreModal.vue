@@ -7,10 +7,10 @@
           <p style="font-size: 15px">{{more.title}}</p>
           <p style="font-size: 13px; ">{{more.body}}</p>
         </router-link>
-        <router-link v-if="more.href" :to="more.href" style="text-decoration: none; color: #1c232e; line-height: 2px; text-align: left; margin-left: 10px; padding-top: 5%">
+        <a v-if="more.href" :href="more.href" style="text-decoration: none; color: #1c232e; line-height: 2px; text-align: left; margin-left: 10px; padding-top: 5%">
           <p style="font-size: 15px">{{more.title}}</p>
           <p style="font-size: 13px; ">{{more.body}}</p>
-        </router-link>
+        </a>
       </div>
     </div>
   </div>
