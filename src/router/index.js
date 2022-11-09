@@ -17,8 +17,9 @@ export default new Router({
   routes: [
     {
       path: '/auth/:provider/callback',
-      name: 'AuthHome',
-      component: AuthHome
+      component: {
+        template: '<div class="auth-component"></div>'
+      }
     },
     {path: '/', name: 'Alison', component: Alison  },
     {path: '/login', name: 'Login', component: Login},
