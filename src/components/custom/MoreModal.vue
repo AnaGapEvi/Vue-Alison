@@ -27,7 +27,8 @@ export default {
         {title: "Resume Builder", body: "Create Your Professional Resume", img: "https://alison.com/html/site/img/header/resume-builder.svg", url:"/login"},
         {title: "Alison Blog", body: "News, Insights, Tips And Stories From Alison", img: "https://alison.com/html/site/img/header/alison-blog.svg", href:"https://blog.alison.com/"},
         {title: "Alison For Business", body: "NeUpskill Your Employees", img: "https://alison.com/html/site/img/header/alison-for-business.svg", url:"/business/contact-us"},
-        {title: "Get Alison Premium", body: "Remove Ads", img: "https://alison.com/html/site/img/header/premium.svg", url:"/"},
+        {title: "Get Alison Premium", body: "Remove Ads", img: "https://alison.com/html/site/img/header/premium.svg", url:"/premium"},
+        {title: "Download the Alison App", body: "Learn anywhere, anytime for free", img: "https://alison.com/html/site/img/header/mobile-app.svg", url:"/"},
       ],
     }
   },
