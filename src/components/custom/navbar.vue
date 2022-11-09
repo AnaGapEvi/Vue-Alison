@@ -228,10 +228,6 @@ export default {
 
       })
     },
-    // closeAllmodals(){
-    //   // this.backMore = !this.backMore
-    //   // this.modalOpen = !this.modalOpen
-    // }
   }
 }
 </script>
@@ -246,11 +242,8 @@ export default {
   position: absolute;
   top: 65px;
   left: 131px;
-
 }
-/* .search-name p{
-  margin-top:7px
-} */
+
 ul {
 padding: 10px 0;
 }
@@ -260,7 +253,6 @@ ul li{
   text-align: left;
   padding: 5px 0;
   border-bottom: 1px solid lightgray ;
-
   margin: 0 !important;
 }
 .li-container{
@@ -324,7 +316,7 @@ ul li:hover{
   font-weight: 700;
 }
 .dollar:hover{
-  background:#cb6c0e ;
+  background:#cb6c0e;
 }
 .dollar:hover .dollar-icon{
   color:white;
@@ -342,7 +334,7 @@ ul li:hover{
 .modal-dollar {
   position: fixed;
   z-index: 9998;
-  top: 0px;
+  top: 0;
   left: 10px;
   right: 10px;
   width: 100%;

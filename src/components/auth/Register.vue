@@ -154,7 +154,6 @@ export default {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
     },
     AuthProvider(provider) {
-      console.log(provider)
       var self = this
       this.$auth.authenticate(provider).then(response =>{
         console.log(response)
@@ -168,7 +167,7 @@ export default {
         console.log(response.data)
         localStorage.setItem('access_token', response.data.token);
         this.showModal()
-        this.$router.push({name: "Dashboard"})
+        this.$router.push({path: "AuthHome"})
         window.location.reload()
       }).catch(err => {
         console.log({err:err}, 'SocialLogin')

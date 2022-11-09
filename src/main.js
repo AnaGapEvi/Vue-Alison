@@ -22,8 +22,8 @@ Vue.use(VueSocialauth, {
     facebook: {
       clientId: "657624482470751",
       client_secret: "239596347338ded2545a05f53cc42170",
-      // redirectUri: 'http://localhost:8080/auth/facebook/callback'
       redirectUri: "https://vue-alisonproject-auth.herokuapp.com/auth/facebook/callback"
+      // redirectUri: 'http://localhost:8080/auth/facebook/callback'
     },
   }
 });
