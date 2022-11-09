@@ -3,7 +3,11 @@
     <div class="modal-body">
       <div class="more" v-for="(more, index) in mores" :key="index">
         <img :src="more.img">
-        <router-link :to="more.url" style="text-decoration: none; color: #1c232e; line-height: 2px; text-align: left; margin-left: 10px; padding-top: 5%">
+        <router-link v-if="more.url" :to="more.url" style="text-decoration: none; color: #1c232e; line-height: 2px; text-align: left; margin-left: 10px; padding-top: 5%">
+          <p style="font-size: 15px">{{more.title}}</p>
+          <p style="font-size: 13px; ">{{more.body}}</p>
+        </router-link>
+        <router-link v-if="more.href" :to="more.href" style="text-decoration: none; color: #1c232e; line-height: 2px; text-align: left; margin-left: 10px; padding-top: 5%">
           <p style="font-size: 15px">{{more.title}}</p>
           <p style="font-size: 13px; ">{{more.body}}</p>
         </router-link>
@@ -21,7 +25,7 @@ export default {
         {title: "Workplace Personality Assessment", body: "Discover Your Strengths & Weaknesses", img: "https://alison.com/html/site/img/header/wpa.svg", url:"/psychometric-test/personality"},
         {title: "Mental Health Assessment", body: "Assess Your Mental Wellbeing", img:"https://alison.com/html/site/img/header/mental-health-assessment.svg", url:"/"},
         {title: "Resume Builder", body: "Create Your Professional Resume", img: "https://alison.com/html/site/img/header/resume-builder.svg", url:"/login"},
-        {title: "Alison Blog", body: "News, Insights, Tips And Stories From Alison", img: "https://alison.com/html/site/img/header/alison-blog.svg", url:"/https://blog.alison.com/"},
+        {title: "Alison Blog", body: "News, Insights, Tips And Stories From Alison", img: "https://alison.com/html/site/img/header/alison-blog.svg", href:"/https://blog.alison.com/"},
         {title: "Alison For Business", body: "NeUpskill Your Employees", img: "https://alison.com/html/site/img/header/alison-for-business.svg", url:"/business/contact-us"},
         {title: "Get Alison Premium", body: "Remove Ads", img: "https://alison.com/html/site/img/header/premium.svg", url:"/"},
       ],
