@@ -85,15 +85,6 @@ export default {
         {name:'Customer Support', icon: 'envelope'},
       ],
       categories: [],
-      urls:['/IT/1',
-        '/Health/2',
-        '/Language/3',
-        '/Business/4',
-        '/Managements/5',
-        '/Personal%20%20Development/6',
-        '/Sales%20&%20Marketing/7',
-        '/Engineering%20&%20Construction/8',
-        '/Teaching%20&%20Academics/9',]
     }
   },
   mounted() {
@@ -106,11 +97,10 @@ export default {
     getCategories() {
         this.axios.get('/get-categories')
           .then((response) => {
+            response.data.forEach((item) => {
+              item.route = `/${item.name}/${item.id}`
+            })
             this.categories = response.data
-            this.categories.map((object, index) => {
-              object.route =  this.urls[index];
-
-            });
           })
       }
   }
