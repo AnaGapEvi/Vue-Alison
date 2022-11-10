@@ -6,26 +6,17 @@
         <div style=" width: 100%">
           <h3 style="text-align: left">Course Types</h3>
           <div style="display:flex; width: 100%; justify-content: space-around">
-            <div class="course">
-              <router-link to="/diploma-course" style="text-decoration: none; font-size: 11px; color: #5d676e;">
+            <div class="course" v-for="type in types">
+              <router-link :to="{path: `/${type}`}" style="text-decoration: none; font-size: 11px; color: #5d676e;">
               <div>
-                <p>Diploma Courses</p>
+                <p>{{type}}</p>
               </div>
-                View all Diploma Courses <b-icon icon="arrow-right" style="font-size: 13px"></b-icon>
+                View all {{type}} <b-icon icon="arrow-right" style="font-size: 13px"></b-icon>
               </router-link>
 
               <img src="https://alison.com/html/site/img/header/diploma-courses.svg">
             </div>
-            <div class="course">
-                <router-link to="/certificate-course" style="text-decoration: none; font-size: 11px; color: #5d676e;">
-                  <div>
-                    <p >Certificate Courses</p>
-                  </div>
 
-                  View all Diploma  Courses  <b-icon icon="arrow-right" style="font-size: 13px" ></b-icon>
-                </router-link>
-              <img src="https://alison.com/html/site/img/header/certificate-courses.svg">
-            </div>
           </div>
           <h3 style="text-align: left; margin-top: 15px">Course Categories</h3>
           <div class="drop">
@@ -55,9 +46,7 @@ name: 'Modal',
       categories: [],
       name:'',
       required: true,
-      routs:[
-
-      ]
+      types:[]
     }
   },
   created() {
@@ -71,9 +60,16 @@ name: 'Modal',
             item.route = `/${item.name}/${item.id}`
           })
           this.categories = response.data
-          console.log(this.categories)
+          this.getType()
         })
     },
+    getType(){
+      let types =this.categories[0].type
+      this.types.push(types)
+      const found = this.categories.find(element => element.type !== types);
+      this.types.push(found.type)
+      return this.types
+    }
   }
 
 };

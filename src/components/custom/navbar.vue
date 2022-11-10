@@ -115,11 +115,11 @@ export default {
       error:''
     }
   },
-  watch:{
-    auth(){
-      this.getAuth()
-    }
-  },
+  // watch:{
+  //   auth(){
+  //     this.getAuth()
+  //   }
+  // },
 
   mounted() {
     if (localStorage.getItem('access_token')){
@@ -128,10 +128,8 @@ export default {
   },
   methods: {
     closeAllmodals(){
-      // if(this.backMore === true ){
-        this.backMore = false
+      this.backMore = false
       this.modalOpen = false
-      // }
     },
     close(){
       this.showModalLogin = true
@@ -192,7 +190,7 @@ export default {
     },
     searchProducts(){
       if(this.search!=='') {
-        axios.post('/find-search-course-name', {search: this.search}).then(resp => {
+        axios.get(`/find-search-course-name/${this.search}`).then(resp => {
           this.courses = resp.data
         }).catch(e => {
           this.courses = []

@@ -33,10 +33,7 @@ export default {
     }
   },
   methods:{
-    // back(){
-    //   this.showModalRegister=!this.showModalRegister
-    //   this.moreModal = false
-    // },
+
   }
 }
 

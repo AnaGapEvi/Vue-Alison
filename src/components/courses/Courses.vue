@@ -40,7 +40,7 @@
           <div style="width: 100%;display: flex; justify-content: space-between">
             <h4>Top 20 Online {{courseName}} Courses</h4>
             <div style="width: 50%; display: flex; justify-content: space-evenly;">
-              <select class="form-select select" v-model="selected "   @change="changeLanguage(selected)" style="width: 40%">
+              <select class="form-select select" v-model="selected"   @change="changeLanguage(selected)" style="width: 40%">
                 <option :value="null" disabled> Language</option>
                 <option v-for="(language, index) in languages" v-bind:value="language" :key="index">{{ capitalizeFirstLetter(language.language)}}</option>
               </select>
@@ -118,6 +118,16 @@ export default {
       freeCourses:[]
     }
   },
+  watch: {
+    valueSearch(newValue, old){
+      this.getCourses()
+    }
+  },
+  computed: {
+    valueSearch() {
+      return this.$route.params.name + '/' + this.$route.params.id;
+    }
+  },
   mounted() {
     this.getCourses()
     this.getSubCategories()
@@ -129,7 +139,7 @@ export default {
       this.id = id
     },
     changeLanguage(data){
-      axios.post('/language-filter', data).then( response => {
+      axios.get(`/language-filter/${data.tr}`).then( response => {
         response.data.forEach((course) => {
           course.category.color = this.categories[course.category.name]
         })
@@ -154,19 +164,17 @@ export default {
         response.data.forEach((course) => {
           course.image = images[course.category.name]
         })
-        console.log(this.freeCourses)
         this.freeCourses=response.data[0] || {}
       }).catch(e=>{
         this.error = e.response.data.message
       })
     },
     changeType(data){
-      axios.post('/type-filter', data).then( response => {
+      axios.get(`/type-filter/${data.type}`).then( response => {
         response.data.forEach((course) => {
           course.category.color = this.categories[course.category.name]
         })
         this.courses=response.data
-        console.log(this.courses)
       }).catch(e=>{
         this.error = e.response.data.message
       })

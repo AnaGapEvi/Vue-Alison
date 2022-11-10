@@ -1,7 +1,7 @@
 <template>
     <div style="background-color: #f3f6f7;">
         <div class="free-online-diploma">
-          <h2>Online Certificate Programs  </h2>
+          <h2>Online {{ valueSearch }} Programs  </h2>
           <p>
             Our specialist certificate programs are designed to give you job-role training
             and formal workplace skills. In fewer than three hours of active learning,
@@ -55,7 +55,18 @@ export default {
         "Sales & Marketing": "lightgrey",
         "Engineering & Construction" : "black",
         "Teaching & Academics":"#bfd131"
-      }
+      },
+      params: this.$route.params.name
+    }
+  },
+  watch: {
+    valueSearch(newValue, old){
+      this.getCertificateCourse()
+    }
+  },
+  computed: {
+    valueSearch() {
+      return this.$route.params.name;
     }
   },
   mounted() {
@@ -63,7 +74,8 @@ export default {
   },
   methods:{
     getCertificateCourse(){
-       axios.get('/certificate-courses').then( response => {
+      const first = this.valueSearch.split(' ')[0]
+       axios.get(`/type-courses/${first}`).then( response => {
          response.data.forEach((course) => {
            course.category.color = this.categories[course.category.name]
          })
@@ -76,7 +88,7 @@ export default {
       return string.charAt(0).toUpperCase() + string.slice(1);
     },
     changeLanguage(data){
-      axios.post('/language-filter', data).then( response => {
+      axios.get(`/language-filter/${data.tr}`).then( response => {
         response.data.forEach((course) => {
           course.category.color = this.categories[course.category.name]
         })

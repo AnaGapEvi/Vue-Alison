@@ -1,10 +1,11 @@
 <template>
     <div style="position: relative">
       <div class="title-course">
-        <h4><button :class="{ active: (1 === activeId) }" @click="getCourseType(1)" >Popular Courses</button></h4>
-        <h4><button :class="{ active: (2 === activeId) }" @click="getCourseTypeTop(2)">Top Diplomas</button></h4>
-        <h4><button :class="{ active: (3 === activeId) }" @click.prevent="getTopCertificates(3)">  Top Certificates</button></h4>
-        <h4><button :class="{ active: (4 === activeId) }" @click.prevent="newCourses(4)">New Courses</button></h4>
+        <h4 v-for="(course, index) in courses" :key="index">
+          <button :class="{ active: (index === activeId) }" @click="getCourseType(course.name, index)" >
+            {{course.name}}
+          </button>
+        </h4>
       </div>
       <div >
         <div style="display: flex;  gap: 15px;   overflow-x: hidden; scroll-behavior: smooth;" ref="widthType">
@@ -28,16 +29,24 @@ export default {
   components: {Course},
   data(){
       return {
-        activeId: 1,
-        courseType:[]
+        activeId: 0,
+        courseType:[],
+        courses:[{name:'Popular Course'}, {name:'Top Diplomas'}, {name:'Top Certificates'}, {name:'New Courses'}]
       }
    },
+  watch(){
+
+  },
+  computed:{
+    // return
+  },
   mounted() {
-     this.getCourseType(this.activeId)
+     this.getCourseType(this.courses[0].name, this.activeId)
   },
   methods:{
-    getCourseType(index){
-      axios.get('/popular-course').then( resp => {
+    getCourseType(course, index){
+      console.log(course)
+      axios.get(`/top-course/${course}`).then( resp => {
         this.courseType= resp.data
         this.activeId = index;
       }).catch( error =>{
@@ -48,6 +57,7 @@ export default {
       axios.get('/top-diplomas').then( resp => {
         this.courseType=[]
         this.courseType= resp.data
+        console.log(this.courseType)
         this.activeId = index;
       }).catch( error =>{
         return error
@@ -78,10 +88,6 @@ export default {
     preBtn(){
         this.$refs.widthType.scrollLeft -= this.$refs.widthType.offsetWidth/4
     },
-    selectMember: function (id) {
-      this.activeId = id;
-    }
-
   }
 }
 </script>

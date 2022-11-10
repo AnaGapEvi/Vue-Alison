@@ -83,7 +83,7 @@ export default {
   },
   methods:{
     searchCourse(){
-        axios.post('/find-search-course', {search:this.valueSearch}).then(resp=>{
+        axios.get(`/find-search-course/${this.valueSearch}`).then(resp=>{
           if(resp.data.message){
             this.courses=[]
             this.error = resp.data.message
