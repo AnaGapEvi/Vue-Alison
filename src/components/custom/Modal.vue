@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" @click="open" v-if="types">
+  <div class="modal" @click="open" v-if="types.length">
     <div class="modal-body">
       <div style="width:90%;  margin: 10px auto">
        <div class="d-block text-center" style="width: 100%">
