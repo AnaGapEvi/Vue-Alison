@@ -9,6 +9,7 @@ import ForgotPassword from "../components/auth/forgotPassword";
 import Register from "../components/auth/Register";
 import BusinessContactUs from "../components/courses/BusinessContactUs";
 import AuthHome from "../components/auth/AuthHome.vue";
+import About from "../components/about/about.vue";
 
 Vue.use(Router)
 
@@ -27,6 +28,8 @@ export default new Router({
     {path: '/forgot', name: 'ForgotPassword', component: ForgotPassword},
     {path: '/dashboard', name: 'AuthHome', component: AuthHome},
     {path:'/business/contact-us', name: 'BusinessContactUs', component: BusinessContactUs },
+    {path:'/our-story', name: 'About', component: About },
+
     ... BuildCareer,
     ...Personality,
     ...Course
