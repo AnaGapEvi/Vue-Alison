@@ -1,7 +1,7 @@
 <template>
   <div class="modal" @click="open" v-if="types.length">
     <div class="modal-body">
-      <div style="width:90%;  margin: 10px auto">
+<!--/*      <div style="width:90%;  margin: 10px auto">*/-->
        <div class="d-block text-center" style="width: 100%">
         <div style=" width: 100%">
           <h3 style="text-align: left">Course Types</h3>
@@ -13,7 +13,6 @@
               </div>
                 View all {{type}} <b-icon icon="arrow-right" style="font-size: 13px"></b-icon>
               </router-link>
-
               <img src="https://alison.com/html/site/img/header/diploma-courses.svg">
             </div>
 
@@ -32,7 +31,7 @@
           </div>
         </div>
        </div>
-      </div>
+<!--      </div>-->
     </div>
   </div>
 </template>
