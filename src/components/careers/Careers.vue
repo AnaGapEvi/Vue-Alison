@@ -14,7 +14,7 @@
         </div>
         <div class="col-md-4 text-left text-sm-center">
           <b-input-group size="sm" class="mb-2" style="border-radius: 5px;overflow: hidden ">
-            <b-form-input type="search" placeholder="Search terms" ></b-form-input>
+            <b-form-input type="search" placeholder="Search terms" v-model="search" v-on:keyup="searchCareer"></b-form-input>
             <b-button is-text class="d-flex p-3 justify-content-center; align-items-center" style="background: #465159; border: none">
               <b-icon icon="search" style="color: white;border: none"></b-icon>
             </b-button>
@@ -50,7 +50,9 @@ export default {
   name: "Careers",
   data(){
     return{
-      careers: []
+      careers: [],
+      search:'',
+      originalCareers: []
     }
   },
   mounted() {
@@ -60,10 +62,29 @@ export default {
     getCareers(){
       axios.get('/careers').then(resp=>{
         this.careers=resp.data
+        this.originalCareers = this.careers;
       }).catch(error =>{
         this.error = error.response.data.message
       })
-    }
+    },
+    searchCareer()
+    {
+      if(this.search == '')
+      {
+        this.careers = this.originalCareers;
+        return;
+      }
+      let searchedCareers = [];
+      for(let i = 0; i < this.originalCareers.length; i++)
+      {
+        let careerName = this.originalCareers[i]['name'].toLowerCase();
+        if(careerName.indexOf(this.search.toLowerCase()) >= 0)
+        {
+          searchedCareers.push(this.originalCareers[i]);
+        }
+      }
+      this.careers = searchedCareers;
+    },
   }
 }
 </script>
