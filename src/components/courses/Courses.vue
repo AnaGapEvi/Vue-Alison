@@ -55,10 +55,10 @@
           </div>
           <div style="width: 100%">
             <h3 style="  text-align: left;">Frequently Asked Questions About Online {{ $route.params.name }} Courses</h3>
-            <div style="width: 100%; margin-bottom: 20px" v-for="question in questions" :key="question.id">
+            <div style="width: 100%; margin-bottom: 20px" v-for="question in questions" :key="question.id"  @click.prevent="activeClass(question.id)">
               <div class="question-title">
                 <p>{{question.title}}</p>
-                <button class="question-btn" @click.prevent="activeClass(question.id)"><b-icon icon="chevron-down" aria-hidden="true"></b-icon> </button>
+                <button class="question-btn"><b-icon icon="chevron-down" aria-hidden="true"></b-icon> </button>
               </div>
               <div  class="isnone" :class="{ 'active': (question.id === id) }">
                 <div class="question-body" >
@@ -81,7 +81,7 @@ export default {
   components: {Course},
   data(){
     return{
-      id:1,
+      id:Number,
       active: false,
       course:[ { title:'Free Online Network Security Courses ', description: 'These free online network security courses will teach you how to protect your networks from an array of threats, including unauthorised access, malware and data theft. From email security to setting up firewalls, these courses will show you how to identify weaknesses in your network security as well as how to strengthen it to ensure that no external party can access your data.'} ],
       courses:[],
