@@ -136,6 +136,7 @@ export default {
             resp.data
             this.showModal()
             this.$router.push({name: "AuthHome"})
+            window.location.reload()
           })
           .catch((e) => {
               this.error = e.response.data.message
