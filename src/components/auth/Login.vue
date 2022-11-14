@@ -193,9 +193,6 @@ export default {
   background: rgba(0,0,0,.6);
   min-height: 100vh;
 }
-
-
-
 .eye{
   display: flex;
 }
@@ -231,7 +228,6 @@ export default {
   padding: 6px 10px;
   width: 80%;
 }
-
 .social-login a{
   display: flex;
 }
