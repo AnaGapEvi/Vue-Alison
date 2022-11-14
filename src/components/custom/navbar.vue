@@ -127,6 +127,12 @@ export default {
     }
   },
   methods: {
+    closeAll(){
+      this.modalOpen=false
+      this.authModal=false
+      this.showDollar=false
+      this.backMore=false
+    },
     closeAllmodals(){
       this.backMore = false
       this.modalOpen = false

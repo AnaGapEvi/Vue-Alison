@@ -3,11 +3,11 @@
     <div class="footer">
       <div>
         <p>ABOUT ALISON</p> <hr>
-        <router-link to="#" v-for="(about,index) in aboutAlison" :key="index">{{about}}</router-link>
+        <router-link  v-for="(about,index) in aboutAlison" :key="index" :to="about.path">{{about.name}}</router-link>
       </div>
       <div>
         <p>LEARNING</p><hr>
-        <router-link to="#" v-for="(about, index) in learning" :key="index">{{about}}</router-link>
+        <router-link  v-for="(about, index) in learning" :key="index" :to="about.path">{{about.name}}</router-link>
       </div>
       <div>
         <p>CATEGORIES</p> <hr>
@@ -44,24 +44,25 @@ export default {
   data(){
     return{
       aboutAlison:[
-        'Our Story',
-        'Open Positions',
-        'Alison Programmes',
-        'Empower Us',
-        'Our Publishers',
-        'Blog',
-        'Hubs',
-        'Index'],
+        {name:'Our Story', path:'/our-story'},
+        {name:'Open Positions', path:''},
+        {name:'Alison Programmes', path:''},
+        {name:'Empower Us', path:''},
+        {name:'Our Publishers', path:''},
+        {name:'Blog', path:''},
+        {name:'Hubs', path:''},
+        {name:'Index', path:''}
+      ],
       learning:[
-        'Get the App',
-        'COVID19 Emergency course',
-        'About Alison Courses',
-        'Alison Testimonials',
-        'East Africa Graduate Outcomes',
-        'Accreditation',
-        'Premium Learning',
-        'Refer a Friend',
-        'Pricing'
+        {name:'Get the App', path:'/online-learning-app'},
+        {name:'COVID19 Emergency course', path:''},
+        {name: 'About Alison Courses', path:''},
+        {name:'Alison Testimonials', path:''},
+        {name: 'East Africa Graduate Outcomes', path:''},
+        {name:'Accreditation', path:''},
+        {name:'Premium Learning', path:''},
+        {name:'Refer a Friend', path:''},
+        {name:'Pricing', path:''}
       ],
       more: [
         'Become a Self Publisher',

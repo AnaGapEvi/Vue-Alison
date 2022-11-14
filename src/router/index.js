@@ -10,6 +10,7 @@ import Register from "../components/auth/Register";
 import BusinessContactUs from "../components/courses/BusinessContactUs";
 import AuthHome from "../components/auth/AuthHome.vue";
 import About from "../components/about/about.vue";
+import OnlineLearning from "../components/about/OnlineLearning.vue";
 
 Vue.use(Router)
 
@@ -29,7 +30,7 @@ export default new Router({
     {path: '/dashboard', name: 'AuthHome', component: AuthHome},
     {path:'/business/contact-us', name: 'BusinessContactUs', component: BusinessContactUs },
     {path:'/our-story', name: 'About', component: About },
-
+    {path:'/online-learning-app', name: 'OnlineLearning', component: OnlineLearning },
     ... BuildCareer,
     ...Personality,
     ...Course
