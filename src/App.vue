@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-<!--    <font-awesome-icon icon="fa-solid fa-user-secret" />-->
-<!--    <i class="fas fa-robot"></i>-->
     <nav-bar class="nav" v-if="$route.path !== '/login' && $route.path !== '/register'  && $route.path !== '/forgot'"/>
     <header v-else id="header-simple" class="header-simple">
       log mi {{isLogin}}

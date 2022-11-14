@@ -45,7 +45,7 @@ export default {
   top: 33px;
   left: 50%;
   position: fixed;
-  margin-top: 35px;
+  margin-top: 30px;
   transform: translate(-50%,0);
   background: #fff;
   z-index: 2;

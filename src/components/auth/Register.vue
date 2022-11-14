@@ -133,9 +133,8 @@ export default {
       if (this.form.firstname !== "" && this.form.lastname !== "" && this.form.email !== "" && this.form.password !== "") {
         this.axios.post('/register', this.form)
           .then((resp) => {
-            // resp.data
+            // console.log(resp.data)
             localStorage.setItem('access_token', resp.data.token);
-            // resp(true)
             this.showModal()
             this.$router.push({name: "AuthHome"})
             window.location.reload()

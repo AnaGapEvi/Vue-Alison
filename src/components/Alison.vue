@@ -178,6 +178,9 @@ export default {
   transform: translateY(-50%);
   width: 12px;
 }
+.user p{
+  margin: 0 !important;
+}
 .user{
   background: #fff;
   border-radius: 6px;

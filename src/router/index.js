@@ -11,6 +11,7 @@ import BusinessContactUs from "../components/courses/BusinessContactUs";
 import AuthHome from "../components/auth/AuthHome.vue";
 import About from "../components/about/about.vue";
 import OnlineLearning from "../components/about/OnlineLearning.vue";
+import SelfPublishing from "../components/about/SelfPublishing.vue";
 
 Vue.use(Router)
 
@@ -31,6 +32,7 @@ export default new Router({
     {path:'/business/contact-us', name: 'BusinessContactUs', component: BusinessContactUs },
     {path:'/our-story', name: 'About', component: About },
     {path:'/online-learning-app', name: 'OnlineLearning', component: OnlineLearning },
+    {path:'/publish/self-publishing', name: 'SelfPublishing', component: SelfPublishing },
     ... BuildCareer,
     ...Personality,
     ...Course

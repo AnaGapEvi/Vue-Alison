@@ -157,7 +157,7 @@ export default {
         "Managements": "https://cdn01.alison-static.net/search/header-img/management.jpg",
         "Personal  Development": "https://cdn01.alison-static.net/search/header-img/personal-development.jpg",
         "Sales & Marketing": "https://cdn01.alison-static.net/search/header-img/marketing.jpg",
-        "Engineering & Construction" : "https://cdn01.alison-static.net/search/header-img/engineering.jpg",
+        "Engineering & Construction" :"https://cdn01.alison-static.net/search/header-img/engineering.jpg",
         "Teaching & Academics": "https://cdn01.alison-static.net/search/header-img/education.jpg"
       }
       axios.get(`/free-online-courses/` + this.$route.params.id).then( response => {
