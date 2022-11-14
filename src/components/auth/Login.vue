@@ -31,30 +31,7 @@
                   </a>
                   <div id="google-custom" style="display:none;"></div>
                 </div>
-                <div class="social-login">
-                  <a @click.prevent="AuthProvider('microsoft')" >
-                    <div>
-                      <img src="https://cdn01.alison-static.net/public/html/site/img/header/microsoft-square.svg"/>
-                    </div>
-                    Continue with Microsoft
-                  </a>
-                </div>
-                <div class="social-login">
-                  <a href="/auth/linkedin?redirect_url=https://alison.com/register&amp;route_name=" rel="nofollow" title="Register/Log In with LinkedIn">
-                    <div>
-                      <img src="https://cdn01.alison-static.net/public/html/site/img/header/linkedin-square.svg"/>
-                    </div>
-                    Continue with Linkedin
-                  </a>
-                </div>
-                <div class="social-login">
-                  <a href="/auth/linkedin?redirect_url=https://alison.com/register&amp;route_name=" rel="nofollow" title="Register/Log In with LinkedIn">
-                    <div>
-                      <img src="https://cdn01.alison-static.net/public/html/site/img/header/yahoo-square.svg"/>
-                    </div>
-                    Continue with Linkedin
-                  </a>
-                </div>
+
               </div>
               <div id="login-buttons">
                   Don't have an Alison account? <router-link to="/login">Sign Up </router-link>

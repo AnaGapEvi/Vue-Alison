@@ -34,22 +34,6 @@
                   </a>
                   <div id="google-custom" style="display:none;"></div>
                 </div>
-                <div class="social-login">
-                  <a @click.prevent="AuthProvider('microsoft')" >
-                    <div>
-                      <img src="https://cdn01.alison-static.net/public/html/site/img/header/microsoft-square.svg"/>
-                    </div>
-                    Continue with Microsoft
-                  </a>
-                </div>
-                <div class="social-login">
-                  <a @click.prevent="AuthProvider('yahoo')" >
-                    <div>
-                      <img src="https://cdn01.alison-static.net/public/html/site/img/header/yahoo-square.svg"/>
-                    </div>
-                    Continue with Yahoo
-                  </a>
-                </div>
               </div>
               <div id="login-buttons">
                 <p style="display: flex; gap: 20px">Already have an Alison account?<router-link to="/login">Log In</router-link></p>
