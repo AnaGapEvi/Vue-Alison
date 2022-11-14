@@ -136,7 +136,11 @@ export default {
   },
   methods:{
     activeClass(id){
+      if(this.id===id){
+        this.id = ''
+      } else {
       this.id = id
+      }
     },
     changeLanguage(data){
       axios.get(`/language-filter/${data.tr}`).then( response => {
@@ -216,7 +220,6 @@ export default {
 
 <style scoped>
 .active {
-  color: green;
   display: block !important;
 }
 .isnone{

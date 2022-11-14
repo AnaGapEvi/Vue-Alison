@@ -15,7 +15,7 @@
       </div>
       <div>
         <p>MORE</p> <hr>
-        <router-link to="#" v-for="(m, index) in more" :key="index">{{m}}</router-link>
+        <router-link  v-for="(m, index) in more" :key="index" :to="m.path">{{m.name}}</router-link>
       </div>
       <div>
         <p> <b></b>CONNECT <b></b></p> <hr>
@@ -65,15 +65,15 @@ export default {
         {name:'Pricing', path:''}
       ],
       more: [
-        'Become a Self Publisher',
-        'Become a Course Creator',
-        'Training Webinars',
-        'Alison for Business',
-        'Graduate Outcomes',
-        'Free Personality Test',
-        'Free Wellbeing Check-up',
-        'Media Centre',
-        'Affiliate Programme',
+        {name: 'Become a Self Publisher', path:'/publish/self-publishing'},
+        {name: 'Become a Course Creator',path:''},
+        {name: 'Training Webinars',path:''},
+        {name: 'Alison for Business',path:''},
+        {name:  'Graduate Outcomes',path:''},
+        {name: 'Free Personality Test',path:''},
+        {name: 'Free Wellbeing Check-up',path:''},
+        {name: 'Media Centre',path:''},
+        {name: 'Affiliate Programme',path:''},
       ],
       connect:[
         {name:'FAQ', icon: 'chat-quote'},
