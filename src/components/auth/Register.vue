@@ -134,7 +134,8 @@ export default {
         this.axios.post('/register', this.form)
           .then((resp) => {
             resp.data
-            this.$router.push({name: "dashboard"})
+            this.showModal()
+            this.$router.push({name: "AuthHome"})
           })
           .catch((e) => {
               this.error = e.response.data.message
