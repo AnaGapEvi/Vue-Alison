@@ -7,7 +7,7 @@
         </div>
         <div class="login-right">
           <div class="tabs">
-            <div class="active signup" v-if="$route.path === '/login' "><router-link  to="/register">Sign Up</router-link></div>
+            <div class="active signup" v-if="$route.path === '/login' "><router-link  to="/register" >Sign Up</router-link></div>
             <div class="active"  v-else><button @click="closeLog" style="background: none; color: gray">Sign Up</button></div>
             <div class="login ">Log In</div>
           </div>
@@ -59,7 +59,6 @@
                       <img style="position: absolute; top: 243px; right: 20%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">
                       <button class="sub-log signup-button" @click.prevent="login_user()">Log In</button>
                     </div>
-
                   </div>
                 </form>
               </div>
@@ -118,8 +117,8 @@ export default {
         console.log(response.data)
         localStorage.setItem('access_token', response.data.token);
         this.showModalLog()
-        this.$router.push({name: "dashboard"})
-        window.location.reload()
+        this.$router.push({path: "/dashboard"})
+        // window.location.reload()
       }).catch(err => {
         console.log({err:err})
       })
@@ -133,7 +132,7 @@ export default {
                 resolve(true)
                 this.showModalLog()
                 this.$router.push({path: "/dashboard"})
-                window.location.reload()
+                // window.location.reload()
               }).catch( error => {
               this.error=error.response.data.message
               this.form.password = ''

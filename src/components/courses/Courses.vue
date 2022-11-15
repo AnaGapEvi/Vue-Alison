@@ -2,7 +2,7 @@
     <div style="padding-top: 50px; background-color: #f3f6f7">
         <div class="title" >
           <div class="links">
-            <h3>{{freeCourses.title}}  </h3>
+            <h3>{{freeCourses.title}}</h3>
             <icons-link></icons-link>
           </div>
           <p>{{freeCourses.content}}</p>
@@ -234,6 +234,10 @@ export default {
   position: relative;
   text-align: left;
   width: 100%;
+}
+.links {
+  width: 100%;
+  display: flex;
 }
 .links a{
   margin: 5px;
