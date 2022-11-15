@@ -12,6 +12,10 @@ import AuthHome from "../components/auth/AuthHome.vue";
 import About from "../components/about/about.vue";
 import OnlineLearning from "../components/about/OnlineLearning.vue";
 import SelfPublishing from "../components/about/SelfPublishing.vue";
+import Programmes from "../components/about/Programmes.vue";
+import Empower from "../components/about/Empower.vue";
+import Coronavirus from "../components/about/Coronavirus.vue";
+import Publishers from "../components/about/Publishers.vue";
 
 Vue.use(Router)
 
@@ -33,6 +37,10 @@ export default new Router({
     {path:'/our-story', name: 'About', component: About },
     {path:'/online-learning-app', name: 'OnlineLearning', component: OnlineLearning },
     {path:'/publish/self-publishing', name: 'SelfPublishing', component: SelfPublishing },
+    {path:'/programmes', name: 'Programmes', component: Programmes },
+    {path:'/empower', name: 'Empower', component: Empower },
+    {path:'/coronavirus', name: 'Coronavirus', component: Coronavirus },
+    {path:'/publishers', name: 'Publishers', component: Publishers },
     ... BuildCareer,
     ...Personality,
     ...Course

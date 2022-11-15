@@ -45,24 +45,24 @@ export default {
     return{
       aboutAlison:[
         {name:'Our Story', path:'/our-story'},
-        {name:'Open Positions', path:''},
-        {name:'Alison Programmes', path:''},
-        {name:'Empower Us', path:''},
-        {name:'Our Publishers', path:''},
-        {name:'Blog', path:''},
-        {name:'Hubs', path:''},
-        {name:'Index', path:''}
+        {name:'Open Positions', path:'/'},
+        {name:'Alison Programmes', path:'/programmes'},
+        {name:'Empower Us', path:'/empower'},
+        {name:'Our Publishers', path:'/publishers'},
+        {name:'Blog', path:'/'},
+        {name:'Hubs', path:'/'},
+        {name:'Index', path:'/'}
       ],
       learning:[
         {name:'Get the App', path:'/online-learning-app'},
-        {name:'COVID19 Emergency course', path:''},
-        {name: 'About Alison Courses', path:''},
-        {name:'Alison Testimonials', path:''},
-        {name: 'East Africa Graduate Outcomes', path:''},
-        {name:'Accreditation', path:''},
-        {name:'Premium Learning', path:''},
-        {name:'Refer a Friend', path:''},
-        {name:'Pricing', path:''}
+        {name:'COVID19 Emergency course', path:'/coronavirus'},
+        {name: 'About Alison Courses', path:'/'},
+        {name:'Alison Testimonials', path:'/'},
+        {name: 'East Africa Graduate Outcomes', path:'/'},
+        {name:'Accreditation', path:'/'},
+        {name:'Premium Learning', path:'/'},
+        {name:'Refer a Friend', path:'/'},
+        {name:'Pricing', path:'/'}
       ],
       more: [
         {name: 'Become a Self Publisher', path:'/publish/self-publishing'},

@@ -8,7 +8,7 @@
       </div>
     </template>
     <p style="font-size: 15px; padding: 2px"><b>{{course.name}}</b></p>
-    <button class="btn">Start Now</button>
+    <button class="btn-course">Start Now</button>
     <div class="start-now">
       <p><i>{{course.publish}}</i></p>
       <p class="description">{{course.description}}</p>
@@ -63,21 +63,22 @@ export default {
   display: block;
   transition: background .3s ease;
 }
-.btn{
+.btn-course{
   background: #0091c7;
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
   display: inline-block;
-  max-width: 145px;
+  width: 145px;
   padding: 10px 20px;
   transition: background .3s ease;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   bottom: 5%;
+  border: 1px solid #0091c7;
 }
-.btn:hover{
+.btn-course:hover{
   background: #aaa;
   border-radius: 5px;
   color: #fff;
