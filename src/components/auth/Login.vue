@@ -25,7 +25,7 @@
                 <div class="social-login">
                   <a @click.prevent="AuthProvider('google')" >
                     <div>
-                      <img src="https://cdn01.alison-static.net/public/html/site/img/header/google-square.svg"/>
+                      <img src="https://alison.com/html/site/img/header/google-square.svg"/>
                     </div>
                     Continue with Google
                   </a>
