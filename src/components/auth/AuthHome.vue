@@ -423,7 +423,7 @@ export default {
 .dashboard{
   display: flex;
   min-height: 100vh;
-  margin-top: 30px ;
+  margin-top: 15px ;
 }
 .left-asside{
   z-index: 100;
