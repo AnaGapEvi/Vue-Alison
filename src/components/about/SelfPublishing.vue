@@ -11,7 +11,6 @@
           <button class="publish-btn">SIGN UP NOW</button>
           <icons-link class="links"></icons-link>
           <p>Know other experts? Tell them about Alison self-publishing!</p>
-
         </div>
       </div>
     </div>
@@ -19,23 +18,8 @@
       <img src="https://cdn01.alison-static.net/public/html/site/img/generic/self_publishing_02.jpg" width="350px">
       <h2>Why become an Alison Self-Publisher?</h2>
       <ul>
-        <li>
-          You can make a difference in the world by sharing your knowledge and expertise with a global audience who are keen to learn.
-        </li>
-        <li>
-          Earn an income by monetizing your skills and experience through our shared revenue offering.
-        </li>
-        <li>
-          Showcase your skills and build your personal brand as an expert in your field.
-        </li>
-        <li>
-          Expand your reach across emerging markets. Over 85% of Alison learners live outside developed economies
-        </li>
-        <li>
-          Use your knowledge and expertise to create and publish courses that will help you earn a passive income for your future.
-        </li>
+        <li v-for="difference in differences">{{difference}}</li>
       </ul>
-
     </div>
     <div class="successful">
       <img src="https://cdn01.alison-static.net/public/html/site/img/generic/sp-extra-01.png" width="350px">
@@ -144,6 +128,12 @@ export default {
   data(){
     return{
       id: Number,
+      differences:['You can make a difference in the world by sharing your knowledge and expertise with a global audience who are keen to learn.',
+        'Earn an income by monetizing your skills and experience through our shared revenue offering.',
+        'Showcase your skills and build your personal brand as an expert in your field.',
+        'Expand your reach across emerging markets. Over 85% of Alison learners live outside developed economies',
+        'Use your knowledge and expertise to create and publish courses that will help you earn a passive income for your future.'
+      ],
       publishers:[
         {title:'1. Sign up', description:'Sign up for an Alison account'},
         {title:'2. Complete the Application Form', description:'Tell us about yourself by completing the Self-Publishers application form. Once we have your details we will take you through each step of the publishing journey.'},
