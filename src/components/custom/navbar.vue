@@ -93,6 +93,7 @@ import DollarModal from "./dollarModal.vue";
 
 export default {
   name: "navbar",
+  props:['user'],
   components: {
     DollarModal,
     Register,
@@ -111,8 +112,9 @@ export default {
       searchResult:"",
       courses:[],
       search:'',
-      email:'',
-      error:''
+      email:this.user.email,
+      error:'',
+      user:this.user
     }
   },
   // watch:{
@@ -215,18 +217,18 @@ export default {
         return error
       })
     },
-    getAuth(){
-      return new Promise((resolve, reject) => {
-        axios.get('/auth-user')
-          .then(result => {
-            this.email = result.data.user.firstname
-            resolve(true)
-          }).catch(error => {
-          reject(error)
-        })
-
-      })
-    },
+    // getAuth(){
+    //   return new Promise((resolve, reject) => {
+    //     axios.get('/auth-user')
+    //       .then(result => {
+    //         this.email = result.data.user.firstname
+    //         resolve(true)
+    //       }).catch(error => {
+    //       reject(error)
+    //     })
+    //
+    //   })
+    // },
   }
 }
 </script>

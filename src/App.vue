@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <nav-bar class="nav" v-if="$route.path !== '/login' && $route.path !== '/register'  && $route.path !== '/forgot'"/>
+    <nav-bar class="nav" v-if="$route.path !== '/login' && $route.path !== '/register'  && $route.path !== '/forgot'" :user=user />
     <header v-else id="header-simple" class="header-simple">
       log mi {{isLogin}}
       <div class="header-simple-logo-container">
@@ -32,8 +32,32 @@ export default {
     return{
       route:[ '', 'build-your-career', 'earn-money'],
       isLogin: false,
+      user:{}
     }
    },
+  mounted() {
+    if (localStorage.getItem('access_token')){
+      this.getAuth()
+      }
+  },
+  methods:{
+      getAuth(){
+        return new Promise((resolve, reject) => {
+          this.axios.get('/auth-user', {
+            headers: {
+              Authorization: 'Bearer '+localStorage.getItem('access_token')
+            }
+          })
+            .then(result => {
+              this.user = result.data.user
+              console.log(this.user)
+              resolve(true)
+            }).catch(error => {
+            reject(error, 'error')
+          })
+
+        })
+    }
 }
 </script>
 
