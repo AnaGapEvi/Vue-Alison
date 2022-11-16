@@ -151,6 +151,7 @@ export default {
     },
     SocialLogin(provider,response){
       this.$http.post('/auth/'+provider, response).then(response => {
+        this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
         console.log(response)
         localStorage.setItem('access_token', response.data.token);
         this.showModal()
