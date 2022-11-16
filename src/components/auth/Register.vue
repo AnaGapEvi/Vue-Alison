@@ -223,7 +223,7 @@ export default {
     AuthProvider(provider) {
       var self = this
       this.$auth.authenticate(provider).then(response =>{
-        console.log(response)
+        // console.log(response)
         self.SocialLogin(provider,response)
       }).catch(err => {
         console.log({err:err})
@@ -231,11 +231,11 @@ export default {
     },
     SocialLogin(provider,response){
       this.$http.post('/auth/'+provider, response).then(response => {
-        // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
+        this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
         localStorage.setItem('access_token', response.data.token);
         this.showModal()
         this.$router.push({name: "AuthHome"})
-        window.location.reload()
+        // window.location.reload()
       }).catch(err => {
         console.log({err:err})
       })
