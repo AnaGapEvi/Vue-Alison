@@ -119,18 +119,21 @@ export default {
   watch: {
     valueSearch(newValue, old){
       this.getAuth()
-      }
-  },
-  // computed: {
-  //   valueSearch() {
-  //     return this.$route.params.name;
-  //   }
-  // },
-  created() {
-    if (localStorage.getItem('access_token')){
-      this.getAuth()
     }
   },
+  computed: {
+    valueSearch() {
+      return this.email;
+    }
+  },
+  // watcher(){
+  //   this.getAuth()
+  // },
+  // mounted() {
+  //   if (localStorage.getItem('access_token')){
+  //     this.getAuth()
+  //   }
+  // },
   methods: {
     closeAllmodals(){
       this.backMore = false
