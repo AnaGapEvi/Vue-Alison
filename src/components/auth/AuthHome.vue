@@ -122,7 +122,11 @@ export default {
   methods:{
       getAuth(){
       return new Promise((resolve, reject) => {
-        this.axios.get('/auth-user')
+        this.axios.get('/auth-user', {
+          headers: {
+            Authorization: 'Bearer '+localStorage.getItem('access_token')
+          }
+        })
           .then(result => {
             this.user = result.data.user
             console.log(this.user)
