@@ -40,24 +40,25 @@ export default {
       this.getAuth()
       }
   },
-  methods:{
-      getAuth(){
-        return new Promise((resolve, reject) => {
-          this.axios.get('/auth-user', {
-            headers: {
-              Authorization: 'Bearer '+localStorage.getItem('access_token')
-            }
-          })
-            .then(result => {
-              this.user = result.data.user
-              console.log(this.user)
-              resolve(true)
-            }).catch(error => {
-            reject(error, 'error')
-          })
-
+  methods: {
+    getAuth() {
+      return new Promise((resolve, reject) => {
+        this.axios.get('/auth-user', {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('access_token')
+          }
         })
+          .then(result => {
+            this.user = result.data.user
+            console.log(this.user)
+            resolve(true)
+          }).catch(error => {
+          reject(error, 'error')
+        })
+
+      })
     }
+  }
 }
 </script>
 
