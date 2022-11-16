@@ -88,7 +88,7 @@
                     <span style="color: #e59898" v-if="error!==''">{{error}}</span>
                     <div style="position: relative; height: 100px">
                       <img style="position: absolute;z-index: 100; bottom: 30px; left: 50%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">
-                      <button class="sub-log"  @click.prevent="login_user()">Log In</button>
+                      <button class="sub-log"  @click.prevent="login(form)">Log In</button>
                     </div>
                   </b-form>
                 </validation-observer>
@@ -105,7 +105,7 @@ import Register from "./Register.vue";
 export default {
   name: "Login",
   components: {Register},
-  props:['showModalLog', 'closeLog'],
+  props:['showModalLog', 'closeLog', 'login'],
   data(){
     return {
       max: 10,
@@ -143,19 +143,7 @@ export default {
         console.log({err:err})
       })
     },
-    login_user() {
-      this.axios.post('/login', this.form)
-        .then(result => {
-          // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
-          localStorage.setItem('access_token', result.data.token);
-          this.showModalLog()
-          this.$router.push({path: "/dashboard"})
-          // window.location.reload()
-        }).catch( error => {
-        this.error=error.response.data.message
-        this.form.password = ''
-      })
-    },
+
     show() {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
     },

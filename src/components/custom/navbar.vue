@@ -47,7 +47,7 @@
             <dollar-modal v-if="showDollar" :dollar="showModalDollar" class="modal-dollar"></dollar-modal>
             <div style="display: flex; height: 100%" v-if="email===''">
               <b-button id="show-modal" @click="showModalLogin = true" class="login-btn">Log In</b-button>
-              <Login v-if="showModalLogin" class="modal-mask" :showModalLog="backLog" :closeLog="closeLog"></Login>
+              <Login v-if="showModalLogin" class="modal-mask" :login="login_user" :showModalLog="backLog" :closeLog="closeLog"></Login>
               <b-button id="show-modal-register" @click="showModalRegister = true" class="register-btn">Sign Up</b-button>
               <Register v-if="showModalRegister" class="modal-mask" :showModal="back" :close="close"> </Register>
               <div
@@ -122,6 +122,19 @@ export default {
     }
   },
   methods: {
+    login_user(form) {
+      this.axios.post('/login', form)
+        .then(result => {
+          // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+          localStorage.setItem('access_token', result.data.token);
+          this.showModalLog()
+          this.$router.push({path: "/dashboard"})
+          // window.location.reload()
+        }).catch( error => {
+        this.error=error.response.data.message
+        this.form.password = ''
+      })
+    },
     closeAllmodals(){
       this.backMore = false
       this.modalOpen = false

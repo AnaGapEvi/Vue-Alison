@@ -17,13 +17,11 @@ Vue.use(VueSocialauth, {
       clientId: '623424837790-4re684v9gip1nnojpmbhui324b1i4h46.apps.googleusercontent.com',
       client_secret: "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",
       redirectUri: "https://vue-alisonproject-auth.herokuapp.com/auth/google/callback",
-      // redirectUri: 'http://localhost:8080/auth/google/callback',
     },
     facebook: {
       clientId: "657624482470751",
       client_secret: "239596347338ded2545a05f53cc42170",
       redirectUri: "https://vue-alisonproject-auth.herokuapp.com/auth/facebook/callback"
-      // redirectUri: 'http://localhost:8080/auth/facebook/callback'
     },
   }
 });
@@ -34,19 +32,7 @@ require('./components/custom/index')
 
 Vue.config.productionTip = false
 
-// router.beforeEach((to, from, next) => {
-//   if (to.fullPath !== "/login") {
-//     this.axios.get('/auth-user').then(response => {
-//       next();
-//     }).catch(error => {
-//       router.push('/login');
-//     })
-//   } else {
-//     next();
-//   }
-// })
 
-// Vue.use()
 new Vue({
   el: '#app',
   router,
