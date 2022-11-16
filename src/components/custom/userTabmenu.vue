@@ -34,16 +34,13 @@ export default {
     },
     methods:{
         getAuth(){
-            return new Promise((resolve, reject) => {
-                this.axios.get('/auth-user')
-                .then(result => {
-                    this.user = result.data.user
-                    resolve(true)
-                }).catch(error => {
-                reject(error, 'error')
-                })
-
-            })
+          this.axios.get('/auth-user')
+          .then(response => {
+            this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
+            this.user = response.data.user
+          }).catch(error => {
+             return error
+          })
         },
     }
 }

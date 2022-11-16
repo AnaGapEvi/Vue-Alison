@@ -144,23 +144,17 @@ export default {
       })
     },
     login_user() {
-      // if(this.form.email !== "" && this.form.password !== "") {
-          return new Promise((resolve, reject) => {
-            this.axios.post('/login', this.form)
-              .then(result => {
-                localStorage.setItem('access_token', result.data.token);
-                resolve(true)
-                this.showModalLog()
-                this.$router.push({path: "/dashboard"})
-                // window.location.reload()
-              }).catch( error => {
-              this.error=error.response.data.message
-              this.form.password = ''
-            })
-          })
-      //   } else {
-      //   this.error = 'All fields is required'
-      // }
+      this.axios.post('/login', this.form)
+        .then(result => {
+          this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+          localStorage.setItem('access_token', result.data.token);
+          this.showModalLog()
+          this.$router.push({path: "/dashboard"})
+          // window.location.reload()
+        }).catch( error => {
+        this.error=error.response.data.message
+        this.form.password = ''
+      })
     },
     show() {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";

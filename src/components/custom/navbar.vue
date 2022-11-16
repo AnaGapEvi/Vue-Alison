@@ -202,8 +202,7 @@ export default {
       this.courses=[]
     },
     logout(){
-      axios.get('/logout').then(result => {
-        this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+      axios.get('/logout').then( result => {
         localStorage.removeItem('access_token');
         this.email=''
         this.$router.push({path: "/"});
@@ -212,17 +211,13 @@ export default {
       })
     },
     getAuth(){
-      return new Promise((resolve, reject) => {
         axios.get('/auth-user')
           .then(result => {
             this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
-            this.email = result.data.user.firstname
-            resolve(true)
+            this.email = result.data.user.email
           }).catch(error => {
-          reject(error)
+           return error
         })
-
-      })
     },
   }
 }

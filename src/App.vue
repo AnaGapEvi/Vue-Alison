@@ -24,7 +24,6 @@
 <script>
 import Footer from "./components/custom/footer.vue";
 import TabNav from "./components/custom/TabNav";
-// import  _  from "lodash"
 export default {
   name: 'App',
   components: {TabNav, Footer},

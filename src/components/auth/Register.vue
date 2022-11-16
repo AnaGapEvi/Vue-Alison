@@ -199,10 +199,9 @@ export default {
   },
   methods: {
     form_submit() {
-      if (this.form.firstname !== "" && this.form.lastname !== "" && this.form.email !== "" && this.form.password !== "") {
         this.axios.post('/register', this.form)
           .then((resp) => {
-            // console.log(resp.data)
+            this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
             localStorage.setItem('access_token', resp.data.token);
             this.showModal()
             this.$router.push({name: "AuthHome"})
@@ -210,11 +209,7 @@ export default {
           })
           .catch((e) => {
               this.error = e.response.data.message
-            }
-          )
-      } else {
-        this.error = 'All fields is required'
-      }
+          })
     },
     backLog() {
       this.showModalLogin = !this.showModalLogin

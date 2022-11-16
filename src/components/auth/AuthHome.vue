@@ -122,32 +122,24 @@ export default {
   },
   methods:{
       getAuth(){
-      return new Promise((resolve, reject) => {
         this.axios.get('/auth-user', {
           headers: {
             Authorization: 'Bearer '+localStorage.getItem('access_token')
           }
-        })
-          .then(result => {
+        }).then(result => {
             this.user = result.data.user
-            console.log(this.user)
-            resolve(true)
-          }).catch(error => {
-          reject(error, 'error')
+          }).catch( error => {
+              return error
         })
-
-      })
     },
     logout(){
-            this.axios.get('/logout').then(result => {
-              this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
-              localStorage.removeItem('access_token');
-            this.$router.push({path: "/"});
-            // window.location.reload()
-            }).catch(error => {
-                return error
-            })
-        },
+      this.axios.get('/logout').then(result => {
+        localStorage.removeItem('access_token');
+      this.$router.push({path: "/"});
+      }).catch(error => {
+          return error
+      })
+    },
   }
 }
 </script>
