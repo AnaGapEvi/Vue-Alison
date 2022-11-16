@@ -151,6 +151,7 @@ export default {
     },
     SocialLogin(provider,response){
       this.$http.post('/auth/'+provider, response).then(response => {
+        console.log(response)
         localStorage.setItem('access_token', response.data.token);
         this.showModal()
         this.$router.push({name: "AuthHome"})

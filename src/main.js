@@ -34,6 +34,7 @@ require('./components/custom/index')
 
 Vue.config.productionTip = false
 
+// Vue.use()
 new Vue({
   el: '#app',
   router,
