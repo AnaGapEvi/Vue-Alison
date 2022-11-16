@@ -111,7 +111,7 @@ export default {
       searchResult:"",
       courses:[],
       search:'',
-      firstname:'',
+      email:'',
       error:'',
       // user:this.user
     }
@@ -215,7 +215,7 @@ export default {
         axios.get('/auth-user')
           .then(result => {
             this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
-            this.firstname = result.data.user.firstname
+            this.email = result.data.user.firstname
             resolve(true)
           }).catch(error => {
           reject(error)
