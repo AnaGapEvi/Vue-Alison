@@ -217,18 +217,19 @@ export default {
         return error
       })
     },
-    // getAuth(){
-    //   return new Promise((resolve, reject) => {
-    //     axios.get('/auth-user')
-    //       .then(result => {
-    //         this.email = result.data.user.firstname
-    //         resolve(true)
-    //       }).catch(error => {
-    //       reject(error)
-    //     })
-    //
-    //   })
-    // },
+    getAuth(){
+      return new Promise((resolve, reject) => {
+        axios.get('/auth-user')
+          .then(result => {
+            this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+            this.email = result.data.user.firstname
+            resolve(true)
+          }).catch(error => {
+          reject(error)
+        })
+
+      })
+    },
   }
 }
 </script>
