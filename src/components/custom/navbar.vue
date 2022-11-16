@@ -113,8 +113,19 @@ export default {
       search:'',
       email:'',
       error:'',
-      token: localStorage.getItem('access_token')
+      token: localStorage.getItem('token')
       // user:this.user
+    }
+  },
+  watch: {
+    token(newValue, old){
+      this.getAuth()
+    }
+  },
+
+  computed:{
+    token() {
+      return this.token
     }
   },
   mounted() {
@@ -219,7 +230,7 @@ export default {
     logout(){
       axios.get('/logout').then( result => {
         localStorage.removeItem('access_token');
-        this.email=''
+        this.token=''
         this.$router.push({path: "/"});
       }).catch(error => {
         return error
@@ -230,6 +241,7 @@ export default {
           .then(result => {
             // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
             this.email = result.data.user.email
+            this.token = result.data.user.email
           }).catch(error => {
            return error
         })
