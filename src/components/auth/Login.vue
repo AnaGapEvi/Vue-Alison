@@ -62,17 +62,6 @@
                   </div>
                 </form>
               </div>
-              <div class="form-group social-signup" style="display: none">
-                <form>
-                  <input name="_token" type="hidden" value="2ACIGXlINYAK0EBvCUbyJzOXHVi4ICIQHGK8d7eK">
-                  <p class="terms-conditions">
-                    <input id="signup_tc_social" name="signup_tc_social" type="checkbox">
-                    <label for="signup_tc_social" class="form-checkbox tc-check">I agree to the <a href="https://alison.com/about/terms-of-use" target="_blank">Terms and Conditions</a></label>
-                    <input name="signup_emails_social" type="hidden" value="1">
-                    <input class="submit-login signup-button" type="submit" value="Sign in">
-                  </p>
-                </form>
-              </div>
             </div>
           </div>
         </div>

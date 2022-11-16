@@ -34,6 +34,18 @@ require('./components/custom/index')
 
 Vue.config.productionTip = false
 
+// router.beforeEach((to, from, next) => {
+//   if (to.fullPath !== "/login") {
+//     this.axios.get('/auth-user').then(response => {
+//       next();
+//     }).catch(error => {
+//       router.push('/login');
+//     })
+//   } else {
+//     next();
+//   }
+// })
+
 // Vue.use()
 new Vue({
   el: '#app',

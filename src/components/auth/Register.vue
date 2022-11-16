@@ -1,6 +1,6 @@
 <template>
   <div class="register" @click.self="showModal">
-    <div class="sign-up" >
+   <div class="sign-up" >
       <button @click="showModal" style="position: absolute; color: white; top:5px; background: none; right: 5px;  width: auto" v-if="$route.path !== '/login' && $route.path !== '/register'">
         <b-icon icon="x-circle" ></b-icon>
       </button>
@@ -45,8 +45,8 @@
             <div class="login-inner-right">
               <div class="form-group email-signup slide-on-social">
                 <p>This is the name that will appear on your Certification</p>
-                <form  action="https://alison.com/register" id="signup-form" name="register-form">
-                  <div class="input-field name name-float first-name ">
+                <form action="https://alison.com/register">
+                  <div class="input-field name name-float first-name">
                     <input class="form-control"  placeholder="First Name" v-model="form.firstname" autocomplete="off" minlength="5" name="firstname" type="text" required>
                   </div>
                   <div class="input-field name-float last-name ">
@@ -54,7 +54,7 @@
                   </div>
                   <div class="clearfix"></div>
                   <div class="input-field-email ">
-                    <input class="form-control"  v-model="form.email" placeholder="E-mail" autocomplete="off"  name="signup_email" type="email" required>
+                    <input class="form-control"  v-model="form.email" placeholder="E-mail" autocomplete="off"  name="signup_email" type="email" required />
                   </div>
                   <div class="input-field eye">
                     <input class="form-control form-pass"   minlength="6" required="" name="signup_password" :type="passwordFieldType" value="form.password" aria-autocomplete="list" v-model="form.password">
@@ -62,11 +62,11 @@
                     <span class="error">{{error}}</span>
                   </div>
                   <div class="hide-on-social">
-                    <p class="terms-conditions">
-<!--                      <input type="checkbox" id="checkbox" v-model="checked" style="border: #2c3e50 1px solid"/>{{checked}}-->
+                    <div class="terms-conditions">
+                      <input type="checkbox" checked id="checkbox" v-model="checked" style="border: #2c3e50 1px solid"/>
                       <label for="signup_tc" class="form-checkbox tc-check">I agree to the <a href="https://alison.com/about/terms-of-use" target="_blank">Terms and Conditions</a></label>
                       <input name="signup_emails" type="hidden" value="1">
-                    </p>
+                    </div>
                     <div class="login-form__submit">
                       <img style="position: absolute; top: 248px; right: 20%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">
                       <button class="sub-log signup-button" @click.prevent="form_submit">Sign Up</button>
@@ -74,15 +74,7 @@
                   </div>
                 </form>
               </div>
-                <div class="form-group social-signup" style="display: none">
-                  <form method="POST" action="https://alison.com" accept-charset="UTF-8" social-form="" id="social-form" name="social-form"><input name="_token" type="hidden" value="2ACIGXlINYAK0EBvCUbyJzOXHVi4ICIQHGK8d7eK">
-                    <p class="terms-conditions">
-                      <label for="signup_tc_social" class="form-checkbox tc-check">I agree to the <a href="https://alison.com/about/terms-of-use" target="_blank">Terms and Conditions</a></label>
-                      <input name="signup_emails_social" type="hidden" value="1">
-                      <input class="submit-login signup-button" type="submit" value="Sign Up">
-                    </p>
-                  </form>
-                </div>
+
               </div>
           </div>
       </div>
@@ -171,7 +163,7 @@ export default {
   position: absolute;
   bottom: -55%;
   width:100%;
-  text-align: center;
+  text-align: right;
   font-size: 12px;
 }
 .eye{
@@ -252,13 +244,13 @@ export default {
   line-height: 29px;
   text-align: left;
 }
-.input-field input, .login-container .form-group .input-field-email input {
-  background: #f3f6f7;
-  border-radius: 4px;
-  color: #5d676e;
-  font-size: 12px;
-  height: 40px;
-}
+/*.input-field input, .login-container .form-group .input-field-email input{*/
+/*  background: #f3f6f7;*/
+/*  border-radius: 4px;*/
+/*  color: #5d676e;*/
+/*  font-size: 12px;*/
+/*  height: 40px;*/
+/*}*/
 .form-group .input-field-email {
   margin-top: 11px;
 }
@@ -280,7 +272,7 @@ export default {
   margin-top: 11px;
   margin-bottom: 11px;
 }
-button, input, select, textarea {
+button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
