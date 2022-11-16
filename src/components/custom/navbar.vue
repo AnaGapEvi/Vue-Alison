@@ -203,6 +203,7 @@ export default {
     },
     logout(){
       axios.get('/logout').then(result => {
+        this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
         localStorage.removeItem('access_token');
         this.email=''
         this.$router.push({path: "/"});

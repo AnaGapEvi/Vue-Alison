@@ -140,7 +140,8 @@ export default {
     },
     logout(){
             this.axios.get('/logout').then(result => {
-            localStorage.removeItem('access_token');
+              this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+              localStorage.removeItem('access_token');
             this.$router.push({path: "/"});
             // window.location.reload()
             }).catch(error => {
