@@ -212,7 +212,11 @@ export default {
     },
     getAuth(){
       return new Promise((resolve, reject) => {
-        axios.get('/auth-user')
+        axios.get('/auth-user', {
+          headers: {
+            Authorization: 'Bearer '+localStorage.getItem('access_token')
+          }
+        })
           .then(result => {
             this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
             this.email = result.data.user.firstname
