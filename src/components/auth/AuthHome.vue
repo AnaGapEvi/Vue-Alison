@@ -107,6 +107,7 @@ export default {
   data(){
     return{
       user:{},
+      token: localStorage.getItem('access_token'),
       medals:[
         {title: 'Gold', description:"Learn 2 days  in a week to earn Gold", img:'https://alison.com/html/site/img/angular-shop/dashboard/medals-gold.svg'},
         {title: 'Silver', description:'Learn 2 days in a week to earn Silver', img:'https://alison.com/html/site/img/angular-shop/dashboard/medals-silver.svg'},
@@ -114,10 +115,10 @@ export default {
       ]
     }
   },
-  mounted(){
-    if (localStorage.getItem('access_token')){
+  created(){
+    // if (localStorage.getItem('access_token')){
       this.getAuth()
-    }
+    // }
   },
   methods:{
       getAuth(){
