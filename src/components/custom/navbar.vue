@@ -45,7 +45,7 @@
               <b-icon icon="currency-dollar" class="dollar-icon" ></b-icon>
             </div>
             <dollar-modal v-if="showDollar" :dollar="showModalDollar" class="modal-dollar"></dollar-modal>
-            <div style="display: flex; height: 100%"  v-if="$route.path === '/dashboard'">
+            <div style="display: flex; height: 100%" v-if="email===''">
               <b-button id="show-modal" @click="showModalLogin = true" class="login-btn">Log In</b-button>
               <Login v-if="showModalLogin" class="modal-mask" :showModalLog="backLog" :closeLog="closeLog"></Login>
               <b-button id="show-modal-register" @click="showModalRegister = true" class="register-btn">Sign Up</b-button>
@@ -116,20 +116,6 @@ export default {
       // user:this.user
     }
   },
-  // watch: {
-  //   valueSearch(newValue, old){
-  //     this.getAuth()
-  //   }
-  // },
-  // computed: {
-  //   valueSearch() {
-  //     this.getAuth()
-  //     return this.email;
-  //   }
-  // },
-  // watcher(){
-  //   this.getAuth()
-  // },
   mounted() {
     if (localStorage.getItem('access_token')){
       this.getAuth()
