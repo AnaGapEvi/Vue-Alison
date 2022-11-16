@@ -112,17 +112,11 @@ export default {
       searchResult:"",
       courses:[],
       search:'',
-      email:this.user.email,
+      firstname:'',
       error:'',
-      user:this.user
+      // user:this.user
     }
   },
-  // watch:{
-  //   auth(){
-  //     this.getAuth()
-  //   }
-  // },
-
   mounted() {
     if (localStorage.getItem('access_token')){
       this.getAuth()
@@ -222,7 +216,7 @@ export default {
         axios.get('/auth-user')
           .then(result => {
             this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
-            this.email = result.data.user.firstname
+            this.firstname = result.data.user.firstname
             resolve(true)
           }).catch(error => {
           reject(error)
