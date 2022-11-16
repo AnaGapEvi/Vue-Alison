@@ -154,7 +154,7 @@ export default {
         localStorage.setItem('access_token', response.data.token);
         this.showModal()
         this.$router.push({name: "AuthHome"})
-        window.location.reload()
+        // window.location.reload()
       }).catch(err => {
         console.log({err:err})
       })
