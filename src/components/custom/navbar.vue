@@ -213,7 +213,7 @@ export default {
     getAuth(){
         axios.get('/auth-user')
           .then(result => {
-            this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+            // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
             this.email = result.data.user.email
           }).catch(error => {
            return error
@@ -239,11 +239,9 @@ export default {
   max-height: 500px;
   overflow-y: auto;;
 }
-
 ul {
 padding: 10px 0;
 }
-
 ul li{
   list-style: none;
   text-align: left;

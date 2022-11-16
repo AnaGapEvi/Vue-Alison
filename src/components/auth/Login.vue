@@ -134,7 +134,7 @@ export default {
     },
     SocialLogin(provider,response){
       this.$http.post('/auth/'+provider, response).then(resp => {
-        this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
+        // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
         localStorage.setItem('access_token', resp.data.token);
         this.showModalLog()
         this.$router.push({path: "/dashboard"})
@@ -146,7 +146,7 @@ export default {
     login_user() {
       this.axios.post('/login', this.form)
         .then(result => {
-          this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+          // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
           localStorage.setItem('access_token', result.data.token);
           this.showModalLog()
           this.$router.push({path: "/dashboard"})

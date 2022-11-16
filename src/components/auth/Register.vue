@@ -201,7 +201,7 @@ export default {
     form_submit() {
         this.axios.post('/register', this.form)
           .then((resp) => {
-            this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
+            // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
             localStorage.setItem('access_token', resp.data.token);
             this.showModal()
             this.$router.push({name: "AuthHome"})
@@ -231,8 +231,8 @@ export default {
     },
     SocialLogin(provider,response){
       this.$http.post('/auth/'+provider, response).then(response => {
-        this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
-        console.log(response)
+        // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
+        // console.log(response)
         localStorage.setItem('access_token', response.data.token);
         this.showModal()
         this.$router.push({name: "AuthHome"})

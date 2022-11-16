@@ -36,7 +36,7 @@ export default {
         getAuth(){
           this.axios.get('/auth-user')
           .then(response => {
-            this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
+            // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
             this.user = response.data.user
           }).catch(error => {
              return error
