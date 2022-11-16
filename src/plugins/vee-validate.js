@@ -14,8 +14,8 @@ extend("min", {
   message: "min 7 simbol"
 });
 extend("max", {
-  ...min,
-  message: "max 10 simbol"
+  ...max,
+  message: "max 20 simbol"
 });
 // extend("password", {
 //   ...forgotPassword,

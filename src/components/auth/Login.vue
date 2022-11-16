@@ -8,8 +8,8 @@
         <div class="login-right">
           <div class="tabs">
             <div class="active signup" v-if="$route.path === '/login' "><router-link  to="/register" >Sign Up</router-link></div>
-            <div class="active"  v-else><button @click="closeLog" style="background: none; color: gray">Sign Up</button></div>
-            <div class="login ">Log In</div>
+            <div class="active" v-else><button class="btn-signup" @click="closeLog" style="color: gray">Sign Up</button></div>
+            <div class="login">Log In</div>
           </div>
           <div class="login-inner-tabs">
             <div class="login-inner-left">
@@ -31,7 +31,6 @@
                   </a>
                   <div id="google-custom" style="display:none;"></div>
                 </div>
-
               </div>
               <div id="login-buttons">
                   Don't have an Alison account? <router-link to="/login">Sign Up </router-link>
@@ -41,26 +40,58 @@
               </div>
             </div>
             <div class="login-inner-right">
-              <div class="form-group email-signup slide-on-social">
-                <form  accept-charset="UTF-8" data-signup-form="" id="signup-form" name="register-form"><input name="_token" type="hidden" value="2ACIGXlINYAK0EBvCUbyJzOXHVi4ICIQHGK8d7eK">
-                  <div class="clearfix"></div>
-                  <div class="input-field-email">
-                    <input class="form-control" id="emailNew" v-model="form.email" placeholder="E-mail" autocomplete="off" required="" name="signup_email" type="email">
-                  </div>
-                  <div class="input-field eye">
-                    <input class="form-control form-pass"  minlength="6" required="" name="signup_password" :type="passwordFieldType" value="form.password" aria-autocomplete="list" v-model="form.password">
-                    <vs-button transparent icon="visibility" @click.prevent="show()" class="ic"></vs-button>
-                  </div>
-                  <router-link style="color: #83c11f; font-size: 13px; text-decoration: none" to="/forgot">Forgot password?</router-link>
-                  <span class="error">{{error}}</span>
-                  <div class="hide-on-social">
-
-                    <div class="login-form__submit">
-                      <img style="position: absolute; top: 243px; right: 20%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">
-                      <button class="sub-log signup-button" @click.prevent="login_user()">Log In</button>
+              <div class="form-group ">
+                <validation-observer ref="observer">
+                  <b-form style="position: relative">
+                    <validation
+                      name="email"
+                      rules="required|email"
+                    >
+                      <b-form-group
+                        label-class="form-label"
+                        label-for="email"
+                        slot-scope="{ errors }"
+                        :invalid-feedback="errors[0]"
+                      >
+                        <b-form-input
+                          id="email"
+                          style="border: 1px solid gray; border-radius: 5px; width: 100%; display: inline-block"
+                          v-model="form.email"
+                          :state="errors[0] ? false : null"
+                          trim
+                        />
+                      </b-form-group>
+                    </validation>
+                    <validation
+                      name="password"
+                      rules="required|min:6"
+                      class="group"
+                    >
+                      <b-form-group
+                        label-class="form-label "
+                        label-for="password"
+                        slot-scope="{ errors }"
+                        :invalid-feedback="errors[0]"
+                      >
+                        <b-form-input
+                          id="password"
+                          v-model="form.password"
+                          :type="passwordFieldType"
+                          :state="errors[0] ? false : null"
+                          trim
+                          style="border: 1px solid gray; border-radius: 0 5px 5px 0; width: 90%; display: inline-block"
+                        />
+                        <vs-button transparent icon="visibility" @click.prevent="show()" class="ic" ></vs-button>
+                      </b-form-group>
+                    </validation>
+                    <router-link style="color: #83c11f; font-size: 13px; text-decoration: none" to="/forgot">Forgot password?</router-link>
+                    <span style="color: #e59898" v-if="error!==''">{{error}}</span>
+                    <div style="position: relative; height: 100px">
+                      <img style="position: absolute;z-index: 100; bottom: 30px; left: 50%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">
+                      <button class="sub-log"  @click.prevent="login_user()">Log In</button>
                     </div>
-                  </div>
-                </form>
+                  </b-form>
+                </validation-observer>
               </div>
             </div>
           </div>
@@ -113,7 +144,7 @@ export default {
       })
     },
     login_user() {
-      if(this.form.email !== "" && this.form.password !== "") {
+      // if(this.form.email !== "" && this.form.password !== "") {
           return new Promise((resolve, reject) => {
             this.axios.post('/login', this.form)
               .then(result => {
@@ -127,9 +158,9 @@ export default {
               this.form.password = ''
             })
           })
-        } else {
-        this.error = 'All fields is required'
-      }
+      //   } else {
+      //   this.error = 'All fields is required'
+      // }
     },
     show() {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
@@ -139,14 +170,7 @@ export default {
 </script>
 
 <style scoped>
-.error{
-  color: #f4254e;
-  /*position: absolute;*/
-  bottom: -55%;
-  width:100%;
-  text-align: center;
-  font-size: 12px;
-}
+
 .login-section{
   padding: 0 !important;
   margin: 0 !important;
@@ -158,17 +182,11 @@ export default {
   background: rgba(0,0,0,.6);
   min-height: 100vh;
 }
-.eye{
-  display: flex;
-}
-.form-pass{
-  width: 92%;
-}
+
 .ic{
-  width: 100px;
-  margin: 0;
+  width: 10%;
   padding:0 10px 0 7px;
-  border-radius: 0 5px 5px 0;
+  border-radius: 5px 0 0 5px;
   background: none;
   border: green;
   color: white;
@@ -220,67 +238,34 @@ export default {
   margin-bottom: 0;
   text-align: left;
 }
-.login-form__submit .sub-log {
+.sub-log {
   background: #83c11f;
   border-radius: 40px;
   color: #fff;
   cursor: pointer;
   font-size: 1.125em;
-  margin: 80px auto 10px;
+  margin: 0 auto ;
   padding: 13px 10px;
   text-align: center;
   transition: all .3s ease-in-out;
-  width: 100%;
+  /*width: 100%;*/
+  border: none;
+  width: 80%;
+  position: absolute;
+  left: 5%;
+  bottom: 0;
 }
-.terms-conditions {
-  color: #868d92;
-  line-height: 29px;
-  /*margin: 12px 0 10px;*/
-  text-align: left;
-}
-.input-field input, .login-container .form-group .input-field-email input {
-  background: #f3f6f7;
-  border-radius: 4px;
-  color: #5d676e;
-  font-size: 12px;
-  height: 40px;
-}
-.form-group .input-field-email {
-  margin-top: 11px;
-}
-.form-group .name-float{
-  float: left;
-  width: calc(50% - 8px);
-}
-.form-group .name-float .last-name{
-  margin-left: 8px;
-}
-.form-group .input-field-email input {
-  background: #f3f6f7;
-  border-radius: 4px;
-  color: #5d676e;
-  font-size: 12px;
-  height: 40px;
-}
-.form-group .input-field-email {
-  margin-top: 11px;
-  margin-bottom: 11px;
-}
-button, input, select, textarea {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: #fff;
-  border: 0;
+
+.btn-signup{
+  border: none;
   border-radius: 0;
   display: inline-block;
   font: 400 1em Roboto,Helvetica Neue,Helvetica,Arial,sans-serif;
   outline: none;
   padding: 10px 20px;
-  width: 100%;
 }
 .form-group {
-  padding: 55px 38px 30px;
+  padding: 15px;
 }
 .login-inner-right p {
   color: #868d92;
