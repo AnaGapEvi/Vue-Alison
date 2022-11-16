@@ -123,6 +123,7 @@ export default {
   },
   computed: {
     valueSearch() {
+      this.getAuth()
       return this.email;
     }
   },
