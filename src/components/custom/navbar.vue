@@ -93,7 +93,6 @@ import DollarModal from "./dollarModal.vue";
 
 export default {
   name: "navbar",
-  props:['user'],
   components: {
     DollarModal,
     Register,
