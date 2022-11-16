@@ -116,7 +116,17 @@ export default {
       // user:this.user
     }
   },
-  mounted() {
+  watch: {
+    valueSearch(newValue, old){
+      this.getAuth()
+      }
+  },
+  // computed: {
+  //   valueSearch() {
+  //     return this.$route.params.name;
+  //   }
+  // },
+  created() {
     if (localStorage.getItem('access_token')){
       this.getAuth()
     }
