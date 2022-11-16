@@ -113,9 +113,9 @@ export default {
       })
     },
     SocialLogin(provider,response){
-      this.$http.post('/auth/'+provider, response).then(response => {
-        console.log(response.data)
-        localStorage.setItem('access_token', response.data.token);
+      this.$http.post('/auth/'+provider, response).then(resp => {
+        this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
+        localStorage.setItem('access_token', resp.data.token);
         this.showModalLog()
         this.$router.push({path: "/dashboard"})
         // window.location.reload()

@@ -218,7 +218,7 @@ export default {
           }
         })
           .then(result => {
-            this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+            // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
             this.email = result.data.user.firstname
             resolve(true)
           }).catch(error => {
