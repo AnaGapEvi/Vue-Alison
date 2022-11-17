@@ -32,7 +32,7 @@ require('./components/custom/index')
 
 Vue.config.productionTip = false
 
-window.axios.interceptors.response.use(
+this.axios.interceptors.response.use(
   response => response,
   error => {
     // Show the user a 500 error
