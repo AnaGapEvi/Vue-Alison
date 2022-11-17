@@ -138,7 +138,7 @@ export default {
     login_user(form) {
       this.axios.post('/login', form)
         .then(resp => {
-          // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+          this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
           localStorage.setItem('access_token', resp.data.token);
           this.token = resp.data.token
           this.showModalLog()
