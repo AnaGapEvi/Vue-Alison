@@ -14,7 +14,7 @@
       <router-link to="" class="root"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/your-certificates.svg')"></div>Get Certificate</router-link>
       <router-link to="" class="root"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/settings.svg')"></div> Account Settings</router-link>
       <router-link to="" class="root withSVG"><b-icon icon="question-square-fill"></b-icon> Help</router-link>
-      <div class="icons" style=" background-image: url('https://alison.com/html/site/img/header/logout.svg')"></div><button @click="logout()" class="log-btn"> Logout </button>
+<!--      <div class="icons" style=" background-image: url('https://alison.com/html/site/img/header/logout.svg')"></div><button @click="logout()" class="log-btn"> Logout </button>-->
     </div>
     <div class="main">
       <div class ="main-title">
@@ -132,15 +132,15 @@ export default {
               return error
         })
     },
-    logout(){
-      this.axios.get('/logout').then(result => {
-        localStorage.removeItem('access_token');
-        this.token=''
-        this.$router.push({path: "/"});
-      }).catch(error => {
-          return error
-      })
-    },
+    // logout(){
+    //   this.axios.get('/logout').then(result => {
+    //     localStorage.removeItem('access_token');
+    //     this.token=''
+    //     this.$router.push({path: "/"});
+    //   }).catch(error => {
+    //       return error
+    //   })
+    // },
   }
 }
 </script>
