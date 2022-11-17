@@ -116,7 +116,6 @@ export default {
     }
   },
   mounted(){
-    console.log(this.token)
     if (this.token!==''){
       this.getAuth()
     }
@@ -137,6 +136,7 @@ export default {
       this.axios.get('/logout').then(result => {
         localStorage.removeItem('access_token');
       this.$router.push({path: "/"});
+      this.token=''
       }).catch(error => {
           return error
       })
