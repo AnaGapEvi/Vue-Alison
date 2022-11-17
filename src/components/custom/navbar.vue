@@ -49,7 +49,7 @@
               <b-button id="show-modal" @click="showModalLogin = true" class="login-btn">Log In</b-button>
               <Login v-if="showModalLogin" class="modal-mask" :login="login_user" :showModalLog="backLog" :closeLog="closeLog"></Login>
               <b-button id="show-modal-register" @click="showModalRegister = true" class="register-btn">Sign Up</b-button>
-              <Register v-if="showModalRegister" class="modal-mask" :showModal="back" :close="close"> </Register>
+              <Register v-if="showModalRegister" class="modal-mask" :showModal="back" :AuthProvider="AuthProvider" :close="close"> </Register>
               <div
                 style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid black">
                 <b-icon icon="globe2" variant="dark"></b-icon>
@@ -245,6 +245,27 @@ export default {
           }).catch(error => {
            return error
         })
+    },
+    AuthProvider(provider) {
+      var self = this
+      this.$auth.authenticate(provider).then(response =>{
+        // console.log(response)
+        self.SocialLogin(provider,response)
+      }).catch(err => {
+        console.log({err:err})
+      })
+    },
+    SocialLogin(provider,response){
+      this.$http.post('/auth/'+provider, response).then(response => {
+        this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
+        localStorage.setItem('access_token', response.data.token);
+        this.token=response.data.token
+        this.showModal()
+        this.$router.push({name: "AuthHome"})
+        // window.location.reload()
+      }).catch(err => {
+        console.log({err:err})
+      })
     },
   }
 }

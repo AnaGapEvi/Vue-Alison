@@ -32,11 +32,40 @@ require('./components/custom/index')
 
 Vue.config.productionTip = false
 
+window.axios.interceptors.response.use(
+  response => response,
+  error => {
+    // Show the user a 500 error
+    if (status >= 500) {
+      console.log({500:error});
+    }
 
+    // Handle Session Timeouts
+    if (status === 401) {
+      console.log({401:error});
+      app.refreshToken();
+    }
+
+    // Handle Forbidden
+    if (status === 403) {
+      console.log({403:error});
+    }
+
+    return Promise.reject(error)
+  }
+);
 new Vue({
   el: '#app',
   router,
   activeClass: 'active-link',
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
+  methods:{
+    methods: {
+      refreshToken: function() {
+        console.log('refreshing the token');
+      }
+    }
+
+  }
 })

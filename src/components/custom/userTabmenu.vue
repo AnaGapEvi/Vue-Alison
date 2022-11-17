@@ -29,6 +29,16 @@ export default {
             user:{}
         }
     },
+  // watch: {
+  //   userget(newValue, old){
+  //     this.getAuth()
+  //   }
+  // },
+  // computed:{
+  //   userget(){
+  //     return this.user
+  //   }
+  // },
     mounted(){
         this.getAuth()
     },
