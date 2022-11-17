@@ -2,45 +2,69 @@ import Vue from "vue";
 
 import axios from "axios";
 import VueAxios from 'vue-axios'
-import router from "../router";
-import App from "../App.vue";
 
 axios.defaults.baseURL = process.env.API_URL;
 axios.defaults.headers.common['Access-Control-Allow-Origin']='*';
 axios.defaults.headers.common['Authorization']='Bearer '+localStorage.getItem('access_token');
 
-// axios.interceptors.request
-// axios.interceptors.response
 Vue.use(VueAxios, axios);
 
-//
-// axios.interceptors.response.use(
-//   response => response,
+
+// Vue.config.productionTip = false;
+// Vue.prototype.$http = axios;
+// axios.defaults.timeout = 10000;
+// axios.interceptors.request.use(
+//   config => {
+//     const token = localStorage.getItem("access_token");
+//     if (token) {
+//       config.headers.common["Authorization"] = token;
+//     }
+//     return config;
+//   },
 //   error => {
-//     // Show the user a 500 error
-//     if (status >= 500) {
-//       console.log({500:error});
-//     }
-//
-//     // Handle Session Timeouts
-//     if (status === 401) {
-//       console.log({401:error});
-//       app.refreshToken();
-//     }
-//
-//     // Handle Forbidden
-//     if (status === 403) {
-//       console.log({403:error});
-//     }
-//
-//     return Promise.reject(error)
+//     return Promise.reject(error);
 //   }
 // );
 //
-// new Vue({
-//   methods: {
-//     refreshToken: function() {
-//       console.log('refreshing the token');
+// axios.interceptors.response.use(
+//   response => {
+//     if (response.status === 200 || response.status === 201) {
+//       return Promise.resolve(response);
+//     } else {
+//       return Promise.reject(response);
+//     }
+//   },
+//   error => {
+//     if (error.response.status) {
+//       switch (error.response.status) {
+//         case 400:
+//
+//           //do something
+//           break;
+//
+//         case 401:
+//           alert("session expired");
+//           break;
+//         case 403:
+//           router.replace({
+//             path: "/login",
+//             query: { redirect: router.currentRoute.fullPath }
+//           });
+//           break;
+//         case 404:
+//           alert('page not exist');
+//           break;
+//         case 502:
+//           setTimeout(() => {
+//             router.replace({
+//               path: "/login",
+//               query: {
+//                 redirect: router.currentRoute.fullPath
+//               }
+//             });
+//           }, 1000);
+//       }
+//       return Promise.reject(error.response);
 //     }
 //   }
-// })
+// );
