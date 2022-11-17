@@ -9,7 +9,7 @@
                 </div>
             </div>
             <div style="padding:5px 15px" @click="authModal">
-                <router-link class="root" to="/dashboard"><div class="dashboard-list" ><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/dashboard.svg')"></div>Your Dashboard</div></router-link>
+                <router-link class="root" to="/dashboard"><div class="dashboard-list"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/dashboard.svg')"></div>Your Dashboard</div></router-link>
                 <router-link to="" class="root"><div class="dashboard-list"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/your-certificates.svg')"></div> Get Your Certificates</div></router-link>
                 <router-link to="" class="root"><div class="dashboard-list"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/your-resume.svg')"></div>Create Your Resume</div></router-link>
                 <router-link to="" class="root"><div class="dashboard-list"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/language.svg')"></div>Change Language  <b-icon icon="chevron-right"></b-icon></div></router-link>
@@ -26,7 +26,10 @@ export default {
   props:['authModal', 'logout'],
     data(){
         return{
-            user:{}
+            user:{},
+          listbar:[
+            {}
+          ]
         }
     },
     mounted(){

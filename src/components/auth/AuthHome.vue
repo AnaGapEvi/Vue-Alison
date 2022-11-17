@@ -4,17 +4,20 @@
       <div class="person"></div>
       <p style="text-align:center; margin: 0px; padding:0; font-size: 16px"><b>{{user.firstname}}</b></p>
       <p style="text-align:center; margin: 0px; padding:0"><router-link to="" style="text-decoration: none; color: black">View Profile</router-link></p>
-      <p style="text-align:center; margin: 0px">Alison ID {{user.id}}</p>
-      <p class="root withSVG"><b-icon icon="play-circle-fill"></b-icon>Continue Leraning</p>
-      <p class="root withSVG"><b-icon icon="heart-fill"></b-icon>For You</p>
-      <router-link class="root" to="/dashboard"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/dashboard.svg')"></div>Your Dashboard</router-link>
-      <router-link to="" class="root"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/your-resume.svg')"></div>Resume Builder</router-link>
-      <router-link to="" class="root"><div class="icons" style="background-size: 50%; background-image: url('https://cdn-icons-png.flaticon.com/512/3135/3135704.png')"></div>Learner Report</router-link>
-      <router-link to="" class="root"><div class="icons" style="background-size: 50%; background-image: url('https://cdn-icons-png.flaticon.com/512/91/91202.png')"></div>Upgrade to Premium</router-link>
-      <router-link to="" class="root"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/your-certificates.svg')"></div>Get Certificate</router-link>
-      <router-link to="" class="root"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/settings.svg')"></div> Account Settings</router-link>
-      <router-link to="" class="root withSVG"><b-icon icon="question-square-fill"></b-icon> Help</router-link>
-      <div class="icons" style=" background-image: url('https://alison.com/html/site/img/header/logout.svg')"></div><button @click="logout()" class="log-btn"> Logout </button>
+      <p  style="text-align:center; margin: 0px">Alison ID {{user.id}} </p>
+
+      <ul class="aside">
+        <router-link to="/" tag="li" class="root withSVG"><b-icon icon="play-circle-fill"></b-icon>Continue Leraning</router-link>
+        <router-link to="/" tag="li" class="root withSVG"><b-icon icon="heart-fill"></b-icon>For You</router-link>
+        <router-link tag="li" class="root" to="/dashboard"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/dashboard.svg')"></div>Your Dashboard</router-link>
+        <router-link to="" tag="li" class="root"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/your-resume.svg')"></div>Resume Builder</router-link>
+        <router-link to="" tag="li" class="root"><div class="icons" style="background-size: 50%; background-image: url('https://cdn-icons-png.flaticon.com/512/3135/3135704.png')"></div>Learner Report</router-link>
+        <router-link to="" tag="li" class="root"><div class="icons" style="background-size: 50%; background-image: url('https://cdn-icons-png.flaticon.com/512/91/91202.png')"></div>Upgrade to Premium</router-link>
+        <router-link to="" tag="li" class="root"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/your-certificates.svg')"></div>Get Certificate</router-link>
+        <router-link to="" tag="li" class="root"><div class="icons" style="background-image: url('https://alison.com/html/site/img/header/settings.svg')"></div> Account Settings</router-link>
+        <router-link to="" tag="li" class="root withSVG"><b-icon icon="question-square-fill"></b-icon> Help</router-link>
+<!--        <li class="root withSVG"> <div class="icons" style=" background-image: url('https://alison.com/html/site/img/header/logout.svg')"></div><button @click="logout()" class="log-btn"> Logout </button></li>-->
+      </ul>
     </div>
     <div class="main">
       <div class ="main-title">
@@ -146,6 +149,10 @@ export default {
 </script>
 
 <style scoped>
+.aside {
+  padding-left: 0!important;
+  margin-left: 0!important;
+}
 .medal-desc{
    display: flex;
   align-items: center;justify-content: space-between;
@@ -194,11 +201,8 @@ export default {
   background-image: url(https://alison.com/html/site/img/angular-shop/dashboard/statistics_empty.svg);
   background-position: center;
   background-repeat: no-repeat;
-  /* height: 300px; */
   width: 50%;
-
 }
-
 .descriptionP span {
   margin-bottom: 10px;
   font-weight: 700;
@@ -207,7 +211,6 @@ export default {
 
 .sandxak{
     text-align: center;
-    font: 14px/21px Roboto;
     letter-spacing: 0;
     color: #777e83;
     opacity: 1;
@@ -241,38 +244,33 @@ export default {
     color: #465159;
     margin-left: 16px;
     margin-top: 16px;
-
 }
 .clock{
     box-shadow: 0 0 6px #504e4e29;
     background: #FFFFFF 0 0 no-repeat padding-box;
     border-radius: 12px;
     width: 42.5%;
-
-    /* border: 1px solid black */
 }
 .radio{
   background: #FFFFFF 0 0 no-repeat padding-box;
-    border: 1px solid #D7D7D7;
-    border-radius: 8px;
-    opacity: 1;
-    padding: 16px 18px;
-    height: 73px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    width: 20%;
-    margin: 5px;
-    text-align: left;
+  border: 1px solid #D7D7D7;
+  border-radius: 8px;
+  opacity: 1;
+  padding: 16px 18px;
+  height: 73px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  margin: 5px;
+  text-align: left;
 }
 .radio input{
   margin-right: 10px ;
 }
 .recom-descrip{
-  /* padding: 20px auto; */
   margin: 10px auto;
   text-align: center;
-
 }
 .grow{
   letter-spacing: 0;
@@ -285,29 +283,20 @@ export default {
   text-align: left;
   margin-left: 5% !important;
 }
-
 .tell{
     max-width: 372px;
-    text-align: center;
-    font: 12px/16px Roboto;
     letter-spacing: 0;
     font-size: 12px !important;
     margin: 10px auto !important;
     color: #5d676e;
     opacity: 1;
-    text-align:center !important;
+    text-align: center !important;
 }
 .log-btn{
   border: none;
   background: none;
   color: #2d3941;
   font-size: 15px;
-}
-.dashboard-list{
-    display:flex;
-    margin: 10px;
-    align-items: center;
-    /* justify-content: space-between */
 }
 .root.withSVG  svg{
   margin-right: 25px;
@@ -337,7 +326,6 @@ export default {
     display: flex;
     align-items:center;
     justify-content: space-around;
-
 }
 .green-btn{
     background-color: #83c11f!important;
@@ -353,12 +341,12 @@ export default {
 }
 .recomendations .title{
   letter-spacing: .02px;
-    color: #2d3941;
-    opacity: 1;
-    font-family: Roboto Black,sans-serif!important;
-    font-weight: 900;
-    font-size: 20px;
-    text-align: center;
+  color: #2d3941;
+  opacity: 1;
+  font-family: Roboto Black,sans-serif!important;
+  font-weight: 900;
+  font-size: 20px;
+  text-align: center;
 }
 .recomendations-img{
   width: 100%;
@@ -370,7 +358,6 @@ export default {
     text-decoration: none;
     display: flex;
     align-items: center;
-    justify-content: start;
     width: 100%;
     margin-top: 20px;
 }
@@ -395,8 +382,8 @@ export default {
 
 }
 .list li{
-  /* color: green; */
   border-bottom: 3px solid lightgray;
+  padding-left: 0!important;
 }
 .main p{
   text-align: left;
@@ -407,14 +394,12 @@ export default {
     font-size: 15px;
     margin-bottom: 25px;
     margin-left: 45px;
-    /* min-height: 34px; */
 }
 .main-title{
   background-image: url(https://alison.com/html/site/img/angular-shop/dashboard/dashboard-top-right-img.svg);
   background-repeat: no-repeat;
   background-position:  right 10% bottom ;
   font-size: 28px;
-  /* padding: 60px 200px 10px 10px; */
   text-align: left;
   color:#2d3941;
   background-color: #f3f6f7;
@@ -437,7 +422,7 @@ export default {
   margin: 20px auto;
   border-radius: 50%;
   overflow: hidden;
-  padding: 2px solid;
+  padding: 2px;
   border: 4px solid lightgrey;
   background-image: url("https://alison.com/images/users/default/26681657.jpg");
   background-size: cover;
@@ -445,12 +430,9 @@ export default {
 .icons{
   width: 30px;
   height: 30px;
-  /* margin: 20px auto; */
   border-radius: 50%;
   overflow: hidden;
   padding: 2px;
-  /* border: 1px solid lightgrey; */
-  /* background-image: url("https://alison.com/images/users/default/26681657.jpg"); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -458,7 +440,5 @@ export default {
 }
 .main{
   background: #fcfcfc;;
-  /* min-height: 100vh; */
-  /* width: 100%; */
 }
 </style>
