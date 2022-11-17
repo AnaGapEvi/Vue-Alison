@@ -231,7 +231,7 @@ export default {
       axios.get('/logout').then( result => {
         localStorage.removeItem('access_token');
         this.token=''
-        this.$router.push({path: "/"});
+        this.$router.push({path: "/dashboard"});
       }).catch(error => {
         return error
       })
