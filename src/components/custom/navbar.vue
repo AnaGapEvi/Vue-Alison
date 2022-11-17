@@ -47,7 +47,7 @@
             <dollar-modal v-if="showDollar" :dollar="showModalDollar" class="modal-dollar"></dollar-modal>
             <div style="display: flex; height: 100%" v-if="token===''">
               <b-button id="show-modal" @click="showModalLogin = true" class="login-btn">Log In</b-button>
-              <Login v-if="showModalLogin" class="modal-mask" :login="login_user" :showModalLog="backLog" :closeLog="closeLog"></Login>
+              <Login v-if="showModalLogin" class="modal-mask" :login="login_user" :AuthProvider="AuthProvider" :showModalLog="backLog" :closeLog="closeLog"></Login>
               <b-button id="show-modal-register" @click="showModalRegister = true" class="register-btn">Sign Up</b-button>
               <Register v-if="showModalRegister" class="modal-mask" :showModal="back" :AuthProvider="AuthProvider" :close="close"> </Register>
               <div

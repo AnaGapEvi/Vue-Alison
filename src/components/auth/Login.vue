@@ -105,7 +105,7 @@ import Register from "./Register.vue";
 export default {
   name: "Login",
   components: {Register},
-  props:['showModalLog', 'closeLog', 'login'],
+  props:['showModalLog', 'closeLog', 'login', 'AuthProvider'],
   data(){
     return {
       max: 10,
@@ -123,27 +123,6 @@ export default {
       this.showModalRegister=!this.showModalRegister
       this.showModalLog = false
     },
-    AuthProvider(provider) {
-      console.log(provider)
-      var self = this
-      this.$auth.authenticate(provider).then(response =>{
-        self.SocialLogin(provider,response)
-      }).catch(err => {
-         return {err:err}
-      })
-    },
-    SocialLogin(provider,response){
-      this.$http.post('/auth/'+provider, response).then(resp => {
-        // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
-        localStorage.setItem('access_token', resp.data.token);
-        this.showModalLog()
-        this.$router.push({path: "/dashboard"})
-        // window.location.reload()
-      }).catch(err => {
-        console.log({err:err})
-      })
-    },
-
     show() {
       this.passwordFieldType = this.passwordFieldType === "password" ? "text" : "password";
     },
