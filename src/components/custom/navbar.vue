@@ -65,7 +65,6 @@
               <button class=person @click="openAuth()"></button>
               <user-tabmenu v-if="authModal"  :authModal="openAuth" :logout="logout"></user-tabmenu>
             </div>
-
           </div>
         </b-nav-item>
       </b-collapse>
@@ -133,9 +132,8 @@ export default {
         .then((resp) => {
           // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
           localStorage.setItem('access_token', resp.data.token);
-          this.showModal()
+          this.back()
           this.$router.push({name: "AuthHome"})
-          window.location.reload()
         })
         .catch((e) => {
           this.error = e.response.data.message
@@ -147,7 +145,7 @@ export default {
           this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
           localStorage.setItem('access_token', resp.data.token);
           this.token = resp.data.token
-          this.showModalLog()
+          this.backLog()
           this.$router.push({path: "/dashboard"})
         }).catch( error => {
         this.error=error.response.data.message
@@ -245,31 +243,16 @@ export default {
         axios.get('/auth-user')
           .then(result => {
             this.email = result.data.user.email
-            // this.token = //
           }).catch(error => {
            return error
-        })
-    },
-    form_submit() {
-      this.axios.post('/register', this.form)
-        .then((resp) => {
-          // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
-          localStorage.setItem('access_token', resp.data.token);
-          this.showModal()
-          this.$router.push({name: "AuthHome"})
-          window.location.reload()
-        })
-        .catch((e) => {
-          this.error = e.response.data.message
         })
     },
     AuthProvider(provider) {
       var self = this
       this.$auth.authenticate(provider).then(response =>{
-        // console.log(response)
         self.SocialLogin(provider,response)
-      }).catch(err => {
-        console.log({err:err})
+      }).catch(error => {
+          return error
       })
     },
     SocialLogin(provider,response){
@@ -279,7 +262,6 @@ export default {
         this.token=response.data.token
         this.showModal()
         this.$router.push({name: "AuthHome"})
-        // window.location.reload()
       }).catch(err => {
         console.log({err:err})
       })
