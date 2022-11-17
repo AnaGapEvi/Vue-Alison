@@ -74,7 +74,7 @@
                         :invalid-feedback="errors[0]"
                       >
                         <b-form-input
-                          id="password"
+                          id="password2"
                           v-model="form.password"
                           :type="passwordFieldType"
                           :state="errors[0] ? false : null"

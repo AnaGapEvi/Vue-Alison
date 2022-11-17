@@ -137,7 +137,6 @@ export default {
         localStorage.removeItem('access_token');
         this.token=''
         this.$router.push({path: "/"});
-        // window.location.reload()
       }).catch(error => {
           return error
       })
