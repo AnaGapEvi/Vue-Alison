@@ -131,7 +131,6 @@ export default {
           this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
           localStorage.setItem('access_token', resp.data.token);
           this.token = resp.data.token
-          console.log(this.token)
           this.back()
           this.$router.push({name: "AuthHome"})
         })
@@ -145,7 +144,6 @@ export default {
           this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
           localStorage.setItem('access_token', resp.data.token);
           this.token = resp.data.token
-          console.log(this.token)
           this.backLog()
           this.$router.push({name: "AuthHome"})
         }).catch( error => {
@@ -264,7 +262,7 @@ export default {
         this.back()
         this.$router.push({name: "AuthHome"})
       }).catch(err => {
-        console.log({err:err})
+        return {err:err}
       })
     },
   }

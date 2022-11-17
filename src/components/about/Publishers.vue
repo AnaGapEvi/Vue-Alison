@@ -62,7 +62,6 @@ export default {
       for(let i = 0; i < this.originalPublishers.length; i++)
       {
         let careerName = this.originalPublishers[i]['text'].toLowerCase();
-        console.log(careerName)
         if(careerName.indexOf(this.search.toLowerCase()) >= 1)
         {
           searchedPublishers.push(this.originalCareers[i]);

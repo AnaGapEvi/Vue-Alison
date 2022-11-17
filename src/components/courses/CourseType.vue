@@ -34,48 +34,12 @@ export default {
         courses:[{name:'Popular Course'}, {name:'Top Diplomas'}, {name:'Top Certificates'}, {name:'New Courses'}]
       }
    },
-  watch(){
-
-  },
-  computed:{
-    // return
-  },
   mounted() {
      this.getCourseType(this.courses[0].name, this.activeId)
   },
   methods:{
     getCourseType(course, index){
-      console.log(course)
       axios.get(`/top-course/${course}`).then( resp => {
-        this.courseType= resp.data
-        this.activeId = index;
-      }).catch( error =>{
-        return error
-      })
-    },
-    getCourseTypeTop(index){
-      axios.get('/top-diplomas').then( resp => {
-        this.courseType=[]
-        this.courseType= resp.data
-        console.log(this.courseType)
-        this.activeId = index;
-      }).catch( error =>{
-        return error
-      })
-    },
-    getTopCertificates(index){
-      axios.get('/top-certificates').then( resp => {
-        this.courseType=[]
-        this.courseType= resp.data
-        this.activeId = index;
-
-      }).catch( error =>{
-        return error
-      })
-    },
-    newCourses(index){
-      axios.get('/new-courses').then( resp => {
-        this.courseType=[]
         this.courseType= resp.data
         this.activeId = index;
       }).catch( error =>{

@@ -115,8 +115,9 @@ export default {
       ]
     }
   },
-  created(){
-    if (localStorage.getItem('access_token')){
+  mounted(){
+    console.log(this.token)
+    if (this.token!==''){
       this.getAuth()
     }
   },
