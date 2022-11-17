@@ -128,18 +128,18 @@ export default {
       return this.token
     }
   },
-  mounted() {
-    if (localStorage.getItem('access_token')){
-      this.getAuth()
-    }
-  },
+  // mounted() {
+  //   if (localStorage.getItem('access_token')){
+  //     this.getAuth()
+  //   }
+  // },
   methods: {
     login_user(form) {
       this.axios.post('/login', form)
-        .then(result => {
+        .then(resp => {
           // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
-          localStorage.setItem('access_token', result.data.token);
-          this.token = result.data.token
+          localStorage.setItem('access_token', resp.data.token);
+          this.token = resp.data.token
           this.showModalLog()
           this.$router.push({path: "/dashboard"})
           // window.location.reload()
@@ -231,7 +231,7 @@ export default {
       axios.get('/logout').then( result => {
         localStorage.removeItem('access_token');
         this.token=''
-        this.$router.push({path: "/dashboard"});
+        this.$router.push({path: "/"});
       }).catch(error => {
         return error
       })
