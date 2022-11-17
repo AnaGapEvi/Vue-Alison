@@ -120,6 +120,7 @@ export default {
   watch: {
     token(newValue, old){
       this.getAuth()
+      this.AuthProvider()
     }
   },
 
@@ -270,7 +271,6 @@ export default {
   }
 }
 </script>
-
 <style scoped>
 .search-name::-webkit-scrollbar-thumb {
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
