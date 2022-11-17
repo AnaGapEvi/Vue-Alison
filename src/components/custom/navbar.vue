@@ -261,7 +261,7 @@ export default {
         this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
         localStorage.setItem('access_token', response.data.token);
         this.token=response.data.token
-        this.showModal()
+        this.back()
         this.$router.push({name: "AuthHome"})
       }).catch(err => {
         console.log({err:err})
