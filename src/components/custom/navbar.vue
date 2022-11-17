@@ -115,7 +115,9 @@ export default {
   },
   watch: {
     token(newValue, old){
-      this.getAuth()
+      if (this.token!==''){
+        this.getAuth()
+      }
       this.AuthProvider()
     }
   },
