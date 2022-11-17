@@ -33,9 +33,7 @@
               </b-nav-item>
               <b-navbar-nav class="ml-auto">
                   <button class="btn" @click="backModalMore()" style="outline: none; font-size: 14px">More<b-icon icon="caret-down-fill" style="font-size: 10px" ></b-icon>       </button>
-                  <more-modal v-if="backMore"  :moreModal="backMoreModal" ></more-modal>
-<!--                <b-button id="show-modal" @click="showModalLogin = true" class="login-btn">Log In</b-button>-->
-<!--                <Login v-if="showModalLogin" class="modal-mask" :showModalLog="backLog"></Login>-->
+                  <more-modal v-if="backMore"  :moreModal="backMoreModal"></more-modal>
               </b-navbar-nav>
             </div>
         </div>
@@ -112,7 +110,7 @@ export default {
       search:'',
       email:'',
       error:'',
-      token: localStorage.getItem('token')
+      token: ''
     }
   },
   watch: {
