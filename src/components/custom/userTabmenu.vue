@@ -29,16 +29,6 @@ export default {
             user:{}
         }
     },
-  // watch: {
-  //   userget(newValue, old){
-  //     this.getAuth()
-  //   }
-  // },
-  // computed:{
-  //   userget(){
-  //     return this.user
-  //   }
-  // },
     mounted(){
         this.getAuth()
     },
@@ -46,7 +36,6 @@ export default {
         getAuth(){
           this.axios.get('/auth-user')
           .then(response => {
-            // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + response.data.token;
             this.user = response.data.user
           }).catch(error => {
              return error

@@ -116,9 +116,9 @@ export default {
     }
   },
   created(){
-    // if (localStorage.getItem('access_token')){
+    if (localStorage.getItem('access_token')){
       this.getAuth()
-    // }
+    }
   },
   methods:{
       getAuth(){
