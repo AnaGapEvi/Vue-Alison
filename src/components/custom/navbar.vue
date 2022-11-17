@@ -130,6 +130,7 @@ export default {
         .then((resp) => {
           this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
           localStorage.setItem('access_token', resp.data.token);
+          this.token = resp.data.token
           this.back()
           this.$router.push({name: "AuthHome"})
         })
