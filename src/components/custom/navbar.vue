@@ -49,7 +49,7 @@
               <b-button id="show-modal" @click="showModalLogin = true" class="login-btn">Log In</b-button>
               <Login v-if="showModalLogin" class="modal-mask" :login="login_user" :AuthProvider="AuthProvider" :showModalLog="backLog" :closeLog="closeLog"></Login>
               <b-button id="show-modal-register" @click="showModalRegister = true" class="register-btn">Sign Up</b-button>
-              <Register v-if="showModalRegister" class="modal-mask" :showModal="back" :AuthProvider="AuthProvider" :close="close"> </Register>
+              <Register v-if="showModalRegister" class="modal-mask" :register="form_submit" :showModal="back" :AuthProvider="AuthProvider" :close="close"> </Register>
               <div
                 style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid black">
                 <b-icon icon="globe2" variant="dark"></b-icon>
@@ -123,30 +123,35 @@ export default {
       this.AuthProvider()
     }
   },
-
   computed:{
     token() {
       return this.token
     }
   },
-  // mounted() {
-  //   if (localStorage.getItem('access_token')){
-  //     this.getAuth()
-  //   }
-  // },
   methods: {
+    form_submit(form) {
+      this.axios.post('/register', form)
+        .then((resp) => {
+          // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
+          localStorage.setItem('access_token', resp.data.token);
+          this.showModal()
+          this.$router.push({name: "AuthHome"})
+          window.location.reload()
+        })
+        .catch((e) => {
+          this.error = e.response.data.message
+        })
+    },
     login_user(form) {
       this.axios.post('/login', form)
         .then(resp => {
-          this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
+          this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
           localStorage.setItem('access_token', resp.data.token);
           this.token = resp.data.token
           this.showModalLog()
           this.$router.push({path: "/dashboard"})
-          // window.location.reload()
         }).catch( error => {
         this.error=error.response.data.message
-        // this.email = ''
       })
     },
     closeAllmodals(){
@@ -240,11 +245,23 @@ export default {
     getAuth(){
         axios.get('/auth-user')
           .then(result => {
-            // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + result.data.token;
             this.email = result.data.user.email
             // this.token = //
           }).catch(error => {
            return error
+        })
+    },
+    form_submit() {
+      this.axios.post('/register', this.form)
+        .then((resp) => {
+          // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
+          localStorage.setItem('access_token', resp.data.token);
+          this.showModal()
+          this.$router.push({name: "AuthHome"})
+          window.location.reload()
+        })
+        .catch((e) => {
+          this.error = e.response.data.message
         })
     },
     AuthProvider(provider) {

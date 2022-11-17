@@ -136,7 +136,7 @@
 <!--                    <span style="color: #e59898" v-if="error!==''">{{error}}</span>-->
                     <div style="position: relative; height: 100px">
                       <img style="position: absolute;z-index: 100; bottom: 30px; left: 50%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">
-                      <button class="sub-log" @click.prevent="form_submit">Sign Up</button>
+                      <button class="sub-log" @click.prevent="register(form)">Sign Up</button>
                     </div>
                   </b-form>
                 </validation-observer>
@@ -179,7 +179,7 @@
 import Login from "../auth/Login";
 export default {
   name: "Register",
-  props: ['showModal', 'close', 'AuthProvider'],
+  props: ['showModal', 'close', 'AuthProvider', 'register'],
   component: {Login},
   data() {
     return {
@@ -198,19 +198,7 @@ export default {
     }
   },
   methods: {
-    form_submit() {
-        this.axios.post('/register', this.form)
-          .then((resp) => {
-            // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
-            localStorage.setItem('access_token', resp.data.token);
-            this.showModal()
-            this.$router.push({name: "AuthHome"})
-            window.location.reload()
-          })
-          .catch((e) => {
-              this.error = e.response.data.message
-          })
-    },
+
     backLog() {
       this.showModalLogin = !this.showModalLogin
     },
