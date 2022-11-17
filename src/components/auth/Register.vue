@@ -140,35 +140,8 @@
                     </div>
                   </b-form>
                 </validation-observer>
-
-
-<!--                <form>-->
-<!--                  <div class="input-field name name-float first-name">-->
-<!--                    <input class="form-control"  placeholder="First Name" v-model="form.firstname" autocomplete="off" minlength="5" type="text" required>-->
-<!--                  </div>-->
-<!--                  <div class="input-field name-float last-name ">-->
-<!--                    <input class="form-control"  placeholder="Surname" v-model="form.lastname" autocomplete="off" minlength="2"  type="text" required>-->
-<!--                  </div>-->
-<!--                  <div class="clearfix"></div>-->
-<!--                  <div class="input-field-email ">-->
-<!--                    <input class="form-control"  v-model="form.email" placeholder="E-mail" autocomplete="off"   type="email" required />-->
-<!--                  </div>-->
-<!--                  <div class="input-field eye">-->
-<!--                    <input class="form-control form-pass"   minlength="6" required="" name="signup_password"  value="form.password" v-model="form.password">-->
-<!--                    <vs-button @click.prevent="show()" dark  shadow icon="visibility" class="ic"></vs-button>-->
-<!--                    <span class="error">{{error}}</span>-->
-<!--                  </div>-->
-<!--                  <div class="hide-on-social">-->
-<!--
-<!--                    <div class="login-form__submit">-->
-<!--                      <img style="position: absolute; top: 248px; right: 20%" src="https://cdn01.alison-static.net/public/html/site/img/header/pointer.svg">-->
-<!--                      <button class="sub-log signup-button" @click.prevent="form_submit">Sign Up</button>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </form>-->
               </div>
-
-              </div>
+            </div>
           </div>
       </div>
     </div>
@@ -198,7 +171,6 @@ export default {
     }
   },
   methods: {
-
     backLog() {
       this.showModalLogin = !this.showModalLogin
     },

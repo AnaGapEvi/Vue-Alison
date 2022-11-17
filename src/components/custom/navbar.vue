@@ -49,7 +49,7 @@
               <b-button id="show-modal" @click="showModalLogin = true" class="login-btn">Log In</b-button>
               <Login v-if="showModalLogin" class="modal-mask" :login="login_user" :AuthProvider="AuthProvider" :showModalLog="backLog" :closeLog="closeLog"></Login>
               <b-button id="show-modal-register" @click="showModalRegister = true" class="register-btn">Sign Up</b-button>
-              <Register v-if="showModalRegister" class="modal-mask" :register="form_submit" :showModal="back" :AuthProvider="AuthProvider" :close="close"> </Register>
+              <Register v-if="showModalRegister" class="modal-mask" :register="registerFunction" :showModal="back" :AuthProvider="AuthProvider" :close="close"> </Register>
               <div
                 style="width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 2px solid black">
                 <b-icon icon="globe2" variant="dark"></b-icon>
@@ -114,7 +114,6 @@ export default {
       email:'',
       error:'',
       token: localStorage.getItem('token')
-      // user:this.user
     }
   },
   watch: {
@@ -129,7 +128,7 @@ export default {
     }
   },
   methods: {
-    form_submit(form) {
+    registerFunction(form) {
       this.axios.post('/register', form)
         .then((resp) => {
           // this.axios.defaults.headers.common['Authorization'] = 'Bearer ' + resp.data.token;
