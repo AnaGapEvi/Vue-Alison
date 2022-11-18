@@ -6,6 +6,5 @@ import SearchResult from "./SearchResult.vue";
 export default [
   {path:'/:name/:id', name: 'Courses', component: Courses },
   {path:'/:name', name: 'CertificateCourse ', component: CertificateCourse  },
-  // {path:'/certificate-course', name: 'CertificateCourse', component: CertificateCourse },
   {path:'/search-result', name: 'SearchResult', component: SearchResult },
 ]

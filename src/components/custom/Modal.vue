@@ -48,7 +48,7 @@ name: 'Modal',
       types:[]
     }
   },
-  created() {
+  mounted() {
     this.getCategories()
   },
   methods:{
@@ -59,7 +59,13 @@ name: 'Modal',
             item.route = `/${item.name}/${item.id}`
           })
           this.categories = response.data
-          this.getType()
+
+          let types =this.categories[0].type
+          this.types.push(types)
+          const found = this.categories.find(element => element.type !== types);
+          this.types.push(found.type)
+          return this.types
+          // this.getType()
         })
     },
     getType(){

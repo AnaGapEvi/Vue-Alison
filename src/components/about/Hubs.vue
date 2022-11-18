@@ -34,7 +34,7 @@
           <p> {{hub.course_count}} COURSES  {{hub.article_count}} ARTICLES</p>
           <router-link to="" tag="div" class="hover-hub">
             <h2>{{hub.title}}</h2>
-            <p>{{hub.description.slice(0,300)}}...Read More</p>
+            <p>{{hub.description.slice(0,300)}}...<span style="color: #4494cc">Read More</span></p>
           </router-link>
         </div>
       </div>
@@ -47,7 +47,7 @@
             <h5>{{hub.title}}</h5>
             <p>{{hub.description.slice(0,120)}}...</p>
           </div>
-          <p> {{hub.course_count}} COURSES :  {{hub.article_count}} ARTICLES</p>
+          <p> {{hub.course_count}} COURSES :     {{  hub.article_count}} ARTICLES</p>
           <b-icon icon="chevron-right"></b-icon>
         </div>
       </div>
@@ -65,7 +65,7 @@ export default {
       hubs:[],
       sortList:[],
       desc:false,
-      selected:'',
+      selected:null,
       searchHubs:[],
       gridFull:true
     }
@@ -151,6 +151,7 @@ export default {
   font-size: 12px;
   letter-spacing: 0;
   position: static;
+  margin: 0!important;
 }
 .hub h2{
   color: #2d3941;
