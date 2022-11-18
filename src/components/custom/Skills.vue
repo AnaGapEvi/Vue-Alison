@@ -7,18 +7,18 @@
         <button  class="next-btn" @click="preBtn()"><b-icon icon="chevron-left" aria-hidden="true"></b-icon> </button>
         <button class="pre-btn" @click="nextBtn()"><b-icon icon="chevron-right" aria-hidden="true"></b-icon> </button>
       </div>
-<!--      <div class="inner-main" ref="dim" v-if="skills.length">-->
-<!--          <div class="hide" >-->
-<!--            <button class="next" v-for="(skill, index) in skills[0]" :key="index">-->
-<!--              <router-link :to="skill.route" style="text-decoration: none;color: #5d676e;">{{skill.name}}</router-link>-->
-<!--            </button>-->
-<!--          </div>-->
-<!--          <div class="hide" >-->
-<!--            <button class="next" v-for="(skill, index) in skills[1]" :key="index">-->
-<!--              <router-link :to="skill.route" style="text-decoration: none;color: #5d676e;">{{skill.name}}</router-link>-->
-<!--            </button>-->
-<!--          </div>-->
-<!--        </div>-->
+      <div class="inner-main" ref="dim" v-if="skills.length">
+          <div class="hide" >
+            <button class="next" v-for="(skill, index) in skills[0]" :key="index">
+              <router-link :to="skill.route" style="text-decoration: none;color: #5d676e;">{{skill.name}}</router-link>
+            </button>
+          </div>
+          <div class="hide" >
+            <button class="next" v-for="(skill, index) in skills[1]" :key="index">
+              <router-link :to="skill.route" style="text-decoration: none;color: #5d676e;">{{skill.name}}</router-link>
+            </button>
+          </div>
+        </div>
     </div>
     <div style="padding-top: 30px">
       <router-link to="#" class="icon-skill" > View More Skills > </router-link>

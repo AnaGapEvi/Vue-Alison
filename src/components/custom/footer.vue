@@ -56,7 +56,7 @@ export default {
       learning:[
         {name:'Get the App', path:'/online-learning-app'},
         {name:'COVID19 Emergency course', path:'/coronavirus'},
-        {name: 'About Alison Courses', path:'/'},
+        {name: 'About Alison Courses', path:'/about/about-alison-courses'},
         {name:'Alison Testimonials', path:'/'},
         {name: 'East Africa Graduate Outcomes', path:'/'},
         {name:'Accreditation', path:'/'},

@@ -38,12 +38,12 @@
             </div>
         </div>
         <b-nav-item style=" display: flex; width: 40%; justify-content: flex-end">
-          <div style="display: flex; width: 100%; justify-content: space-between;">
+          <div style="display: flex; width: 100%; justify-content: space-between;align-items: center">
             <div class="dollar" @click="showDollar = !showDollar">
               <b-icon icon="currency-dollar" class="dollar-icon" ></b-icon>
             </div>
             <dollar-modal v-if="showDollar" :dollar="showModalDollar" class="modal-dollar"></dollar-modal>
-            <div style="display: flex; height: 100%" v-if="token===''">
+            <div style="display: flex;align-items: center; height: 100%" v-if="token===''">
               <b-button id="show-modal" @click="showModalLogin = true" class="login-btn">Log In</b-button>
               <Login v-if="showModalLogin" class="modal-mask" :login="login_user" :AuthProvider="AuthProvider" :showModalLog="backLog" :closeLog="closeLog"></Login>
               <b-button id="show-modal-register" @click="showModalRegister = true" class="register-btn">Sign Up</b-button>

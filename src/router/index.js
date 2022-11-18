@@ -17,6 +17,7 @@ import Empower from "../components/about/Empower.vue";
 import Coronavirus from "../components/about/Coronavirus.vue";
 import Publishers from "../components/about/Publishers.vue";
 import Hubs from "../components/about/Hubs.vue";
+import AboutAlisonCourses from "../components/about/AboutAlisonCourses.vue";
 
 Vue.use(Router)
 
@@ -43,6 +44,7 @@ export default new Router({
     {path:'/coronavirus', name: 'Coronavirus', component: Coronavirus },
     {path:'/publishers', name: 'Publishers', component: Publishers },
     {path:'/hubs', name: 'Hubs', component: Hubs },
+    {path:'/about/about-alison-courses', name: 'AboutAlisonCourses', component: AboutAlisonCourses },
     ... BuildCareer,
     ...Personality,
     ...Course
