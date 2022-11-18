@@ -6,7 +6,6 @@ import vsButton from "vuesax";
 import 'material-icons/iconfont/material-icons.css';
 import 'vuesax/dist/vuesax.css'
 import VueSocialauth from 'vue-social-auth'
-import {env} from "shelljs";
 
 Vue.use(Vuesax)
 Vue.use(vsButton)

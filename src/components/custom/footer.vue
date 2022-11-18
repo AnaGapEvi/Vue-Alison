@@ -50,7 +50,7 @@ export default {
         {name:'Empower Us', path:'/empower'},
         {name:'Our Publishers', path:'/publishers'},
         {name:'Blog', path:'/'},
-        {name:'Hubs', path:'/'},
+        {name:'Hubs', path:'/hubs'},
         {name:'Index', path:'/'}
       ],
       learning:[

@@ -5,7 +5,6 @@
       <p style="text-align:center; margin: 0px; padding:0; font-size: 16px"><b>{{user.firstname}}</b></p>
       <p style="text-align:center; margin: 0px; padding:0"><router-link to="" style="text-decoration: none; color: black">View Profile</router-link></p>
       <p  style="text-align:center; margin: 0px">Alison ID {{user.id}} </p>
-
       <ul class="aside">
         <router-link to="/" tag="li" class="root withSVG"><b-icon icon="play-circle-fill"></b-icon>Continue Leraning</router-link>
         <router-link to="/" tag="li" class="root withSVG"><b-icon icon="heart-fill"></b-icon>For You</router-link>
